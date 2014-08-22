@@ -1,0 +1,49 @@
+div.accordion > div {
+	background-color:#fbfbfb;
+}
+.exam-nav-bor {
+	border:1px solid #9BB631;
+}
+.exam-nav-bor a {
+	color:#787878;
+}
+.exam-nav-bor .exam-nav-title {
+	font-size:17px;
+	font-weight:bold;
+}
+.exam-nav-bor .exam-nav-title .exam-badge-bg {
+	background-color:#9BB631;
+}
+.accordion-inner:hover{
+	background-color:#EBEBEB;
+}
+.exam-block {
+	padding:0px 10px 10px 10px;
+}
+.exam-block .exam-block-br {
+	font-size:14px;
+	min-height:400px;
+	padding:20px;
+	color:#424242;
+	box-shadow: 5px 5px 10px #D6D5D5;
+	background: #fbfbfb;
+    border-left: solid 1px #cdcdcd;
+    border-right: solid 1px #cdcdcd;
+}
+.exam-block .exam-block-br #exam-xzt,#exam-tkt,#exam-dt {
+	margin-bottom:30px;
+}
+.exam-block .exam-block-br #exam-xzt p input{
+	margin-right:5px;
+}
+.exam-block .exam-block-br button {
+	margin-right:5px;
+}
+
+/*exam-answer页面的*/
+.user-color {
+	color:red;
+}
+.right-color {
+	color:#83A400;
+}

@@ -1,0 +1,5 @@
+jdbcUrl=jdbc:mysql://localhost/test_online
+jdbcUrl2=jdbc:mysql://127.0.0.1/test_online?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user=root
+password=root
+saveDirectory=./upload

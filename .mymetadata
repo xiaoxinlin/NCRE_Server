@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="NCRE_angular"
+  id="myeclipse.1405512726527"
+  context-root="/mavenDemo4"
+  j2ee-spec="5.0"
+  archive="NCRE_angular.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

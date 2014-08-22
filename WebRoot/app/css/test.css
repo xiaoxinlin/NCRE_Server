@@ -1,0 +1,49 @@
+/*test页面的*/
+
+div.accordion > div {
+	background-color:#fbfbfb;
+}
+.test-nav-bor {
+	border:1px solid #9BB631;
+}
+.test-nav-bor a {
+	color:#787878;
+}
+.test-nav-bor .test-nav-title {
+	font-size:17px;
+	font-weight:bold;
+}
+.test-nav-bor .test-nav-title .test-badge-bg {
+	background-color:#9BB631;
+}
+.accordion-inner:hover{
+	background-color:#EBEBEB;
+}
+.test-block {
+	padding:0px 10px 10px 10px;
+}
+.test-block .test-block-br {
+	font-size:14px;
+	min-height:400px;
+	padding:20px;
+	color:#424242;
+	box-shadow: 5px 5px 10px #D6D5D5;
+	background: #fbfbfb;
+    border-left: solid 1px #cdcdcd;
+    border-right: solid 1px #cdcdcd;
+}
+.test-block .test-block-br #test-xzt {
+	margin-bottom:30px;
+}
+.test-block .test-block-br #test-xzt p input{
+	margin-right:5px;
+}
+
+
+/*test-answer页面的*/
+.user-color {
+	color:red;
+}
+.right-color {
+	color:#83A400;
+}
