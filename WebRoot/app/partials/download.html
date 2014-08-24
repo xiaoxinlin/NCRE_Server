@@ -9,8 +9,8 @@
 	                   		 <div class="row">
 	                            <div class="span8">
 	                            	<div class="title-divider">
-	                                    <span class="download-type-btn">考试资料下载</span>
-	                                    <span class="download-type-btn">相关软件下载</span>
+	                                    <span class="download-type-btn"><a href="#/downloads/doc/1">考试资料下载</a></span>
+	                                    <span class="download-type-btn"><a href="#/downloads/software/1">相关软件下载</a></span>
 	                                </div>
 	                            </div>
 	                            <article class="blog-post span8">
@@ -18,71 +18,20 @@
 	                                	<div class="download-block block-light">
 		                                	<div id="download-text">
 		                                		<table class="table table-hover">
-		                                    	    <tr>
-											           <td><a href="" >全国计算机等级考试二级试题.zip全国计算机等级考试二级试题.zip全国计算机等级考试二级试题.zip</a></td>
-											           <td><span >[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试听力资料.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试2014年模拟试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >2013年全国计算机等级考试二级试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试二级试题PPT讲解.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="" >全国计算机等级考试二级试题.zip</a></td>
-											           <td><span >[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试听力资料.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试2014年模拟试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >2013年全国计算机等级考试二级试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试二级试题PPT讲解.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="" >全国计算机等级考试二级试题.zip全国计算机等级考试二级试题.zip</a></td>
-											           <td><span >[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试听力资料.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >全国计算机等级考试2014年模拟试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
-											        </tr>
-											        <tr>
-											           <td><a href="#" >2013年全国计算机等级考试二级试题.zip</a></td>
-											           <td><span>[2014-08-01]</span></td>
+		                                			<tr ng-repeat="file in files">
+											           <td><a href="http://localhost:8080/mavenDemo4/file/download?id={{file.id}}" >{{file.title}}</a></td>
+											           <td><span>[{{file.upload_date}}]</span></td>
 											        </tr>
 			                                    </table>
 		                                		<div class="download-page">
 													<div class="container-fluid">
 														<div class="row-fluid">
 															<div class="span12">
-																<ul class="pager">
-																  <li><a href="#">上一页</a></li>
-																  <li><a href="#">下一页</a></li>
-																</ul>	
+																<ul class="pager" id="pager">
+																  <li><a href="#/downloads/{{action}}{{pageNumber-1}}" >上一页</a></li>
+																  <li><a href="#/downloads/{{action}}{{pageNumber+1}}" >下一页</a></li>
+																</ul>
+																<div class="hidden" id ="totalPage">{{totalPage}}</div>	
 															</div>
 														</div>
 													</div>
@@ -128,34 +77,7 @@
 								<div class="tab-pane  active" id="anno">
 									<section class="anno-tab">
 									<table class="table table-hover">
-										<!--   	    <tr>
-										           <td><a href="announcement-details.jsp"><div class="anno-ellipsis"><span class="label label-warning" id="blink">新</span>新的公告公告新的公告公告</div></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><div class="anno-ellipsis"><span class="label label-warning" id="blink">新</span>新的公告公告新的公告公告</div></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><div class="anno-ellipsis"><span class="label label-warning" id="blink">新</span>新的公告公告新的公告公告新的公告公告新的公告公告</div></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><div class="anno-ellipsis">新的公告公告新的公告公告新的公告公告新的公告公告</div></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><span>新的公告公告新的公告公告</span></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><span>新的公告公告新的公告公告</span></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr>
-										        <tr>
-										           <td><a href="#"><span>新的公告公告新的公告公告</span></a></td>
-										           <td><span name="anno-time">[2014-08-01]</span></td>
-										        </tr> -->
+										
 										<tr ng-repeat="anno in annos">
 											<td>
 												<a href="#?{{anno.id}}"><span>{{anno.title}}</span>
@@ -342,5 +264,32 @@
 				</div>
 			</div>
 			</section>
+			<script >
+				
+				$("ul#pager>li>a").click(function(e) {  
+			    	
+			    	var flag = true;
+			    	var totalPage = $("#totalPage").text();
+			     	if( $(this).attr("href").match("\\d*$") == 0 ){
+						alert("当前页已经是第一页！！");
+						flag = false;
+					}
+					if($(this).attr("href").match("\\d*$")-1 == totalPage){
+						alert("当前页已经是最后一页！！");
+						flag = false;
+					}
+					if(!flag){
+						//阻止默认的超链接动作  
+				        if ( e && e.preventDefault ){  
+				            e.preventDefault();  
+				        }else{  
+				            window.event.returnValue = false;  
+				        }  
+				       
+					}
+			        return flag;
+			    
+				} ); 
+			</script>
 	                    
 	                  

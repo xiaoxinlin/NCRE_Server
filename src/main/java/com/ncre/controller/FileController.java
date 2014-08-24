@@ -1,6 +1,12 @@
 package com.ncre.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -82,18 +88,38 @@ public class FileController extends Controller implements
 			renderText("id not exist!");
 		}
 	}
-
 	/**
-	 * 获取文件第一页列表,每一页为10条记录
-	 * 
-	 * @param type
-	 *            -- 需要传入一个文件类型
+	 * 获取文件第一页列表,每一页为14条记录
+	 * @param pageNum
 	 * @return 返回一个page对象
 	 */
 	public void index() {
+		int pageNumber = 1;
+		if(getPara("page") != null){
+			pageNumber = Integer.parseInt( getPara("page") );
+		}
+		
+		int pageSize = 14;
+		Page<FileClass> fileList = FileClass.dao.paginate(pageNumber, pageSize,
+				"select *", " from file " );
+		renderJson(fileList);
+	}
+	/**
+	 * 通过类型获取文件第一页列表,每一页为14条记录
+	 * 
+	 * @param type
+	 *            -- 需要传入一个文件类型
+	 *        pageNum
+	 *        	  -- 页码
+	 * @return 返回一个page对象
+	 */
+	public void indexByType() {
 		String type = getPara("type");
 		int pageNumber = 1;
-		int pageSize = 10;
+		if(getPara("page") != null){
+			pageNumber = Integer.parseInt( getPara("page") );
+		}
+		int pageSize = 14;
 		Page<FileClass> fileList = FileClass.dao.paginate(pageNumber, pageSize,
 				"select *", " from file where type = ?", type);
 
@@ -163,5 +189,48 @@ public class FileController extends Controller implements
 
 		renderJson(fileClass);
 	}
-
+	
+	/**文件下载功能
+	 *@param id 
+	 */
+	public void download(){
+		String id = getPara("id");
+		
+		FileClass file = FileClass.dao.findById(id);
+		
+		String path= file.get("uri");
+		try{
+	        if(!"".equals(path)){
+	            path=new String(path.getBytes("ISO-8859-1"),"UTF-8");
+	            File downloadFile=new File(path);//构造要下载的文件   
+	            if(downloadFile.exists()){
+	                InputStream ins=new FileInputStream(path);//构造一个读取文件的IO流对象
+	                BufferedInputStream bins=new BufferedInputStream(ins);//放到缓冲流里面
+	                OutputStream outs=this.getResponse().getOutputStream();//获取文件输出IO流
+	                BufferedOutputStream bouts=new BufferedOutputStream(outs);
+	                this.getResponse().setContentType("application/x-download");//设置response内容的类型
+	                this.getResponse().setHeader("Content-disposition","attachment;filename="+ URLEncoder.encode(path, "UTF-8"));//设置头部信息
+	                int bytesRead = 0;
+	                byte[] buffer = new byte[8192];
+	                //开始向网络传输文件流
+	                while ((bytesRead = bins.read(buffer, 0, 8192)) != -1) {
+	                    bouts.write(buffer, 0, bytesRead);
+	                }
+	                bouts.flush();//这里一定要调用flush()方法
+	                ins.close();
+	                bins.close();
+	                outs.close();
+	                bouts.close();
+	            }else{
+	                System.out.println("下载的文件不存在");
+	            }
+	        }else{
+	            System.out.println("下载文件时参数错误");
+	        }
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+        renderText("success");
+	}
 }

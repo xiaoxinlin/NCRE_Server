@@ -86,8 +86,62 @@ var DownloadsCtrl = [
 			var downPageId = $routeParams.downPageId;
 			//这里后续需要对参数进行判断处理
 			//....
-			$http.get("http://localhost:8080/mavenDemo4/download/index?id="+ downPageId ).success(function(data){
-				$scope.announcements = data;
+
+			$http.get("http://localhost:8080/mavenDemo4/file/index?page="+ downPageId ).success(function(data){
+				$scope.action = "";
+				$scope.pageSize = data.pageSize;
+				$scope.pageNumber = data.pageNumber;
+				$scope.totalPage = data.totalPage;
+				$scope.files = data.list;
+				//console.log($scope.files);
 			});
+		
+		}
+];
+
+//获取一个文件下载列表（14个）
+var DownloadsDocCtrl = [
+		'$scope',
+		'$routeParams',
+		'$http',
+		function($scope,$routeParams,$http){
+			var downPageId = $routeParams.downPageId;
+			//var downType = $routeParams.downType;
+			//这里后续需要对参数进行判断处理
+			//....
+
+			$http.get("http://localhost:8080/mavenDemo4/file/indexByType?page="+ downPageId + "&type=office" ).success(function(data){
+				$scope.action = "doc/";
+				$scope.pageSize = data.pageSize;
+				$scope.pageNumber = data.pageNumber;
+				$scope.totalPage = data.totalPage;
+				$scope.files = data.list;
+				//console.log($scope.files);
+			});
+		
+		}
+];
+
+
+//获取一个软件下载列表（14个）
+var DownloadsSoftwareCtrl = [
+		'$scope',
+		'$routeParams',
+		'$http',
+		function($scope,$routeParams,$http){
+			var downPageId = $routeParams.downPageId;
+			//var downType = $routeParams.downType;
+			//这里后续需要对参数进行判断处理
+			//....
+
+			$http.get("http://localhost:8080/mavenDemo4/file/indexByType?page="+ downPageId + "&type=access" ).success(function(data){
+				$scope.action = "software/";
+				$scope.pageSize = data.pageSize;
+				$scope.pageNumber = data.pageNumber;
+				$scope.totalPage = data.totalPage;
+				$scope.files = data.list;
+				//console.log($scope.files);
+			});
+		
 		}
 ];
