@@ -1,0 +1,39 @@
+.xzt-btn {
+	margin-left: 4%;
+}
+.xzt-btn button {
+	width: 100px;
+	margin-right: 40px;
+}
+table th {
+	color:white;
+	font-size:13px;
+	font-weight: lighter;
+	background-color: #b2b2b2;
+}
+
+
+
+
+/*b-xzt-add.jsp*/
+
+.add-xzt-module {
+	width: 95%;
+	margin: 3% 0% 0 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.add-xzt-module .add-xzt-cke {
+	border:1px solid #CFCFCF;
+}
+
+
+/*b-xzt-update.jsp*/
+.update-xzt-module {
+	width: 95%;
+	margin: 3% 0% 0 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

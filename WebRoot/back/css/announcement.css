@@ -1,0 +1,36 @@
+
+.anno-shadow {
+	box-shadow: 5px 5px 10px #D6D5D5;
+	/*-moz-box-shadow:4px 4px 12px 4px rgba(20%,20%,40%,0.5);
+	-webkit-box-shadow:4px 4px 12px 4px rgba(20%,20%,40%,0.5);
+	box-shadow:4px 4px 12px 4px rgba(20%,20%,40%,0.5);*/
+}
+.anno-shadow .anno-block {
+	padding:5px;
+}
+.anno-shadow .anno-block table td {
+	border:0px;
+	line-height:25px;
+	border-bottom:1px solid #e0e0e0;
+}
+
+.anno-shadow .anno-block table td a {
+	color:#424242;
+	font-size:15px;
+}
+.anno-shadow .anno-block table td a:hover{
+    text-decoration: underline;
+    color: #C34412;
+}
+.anno-shadow .anno-page {
+	text-align:center;
+}
+.anno-shadow .anno-page li a {
+	color:#787878;
+}
+
+.anno-shadow .anno-page li a:hover {
+	color:#787878;
+	text-decoration: none;
+	background-color:#AED025;
+}

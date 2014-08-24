@@ -1,0 +1,40 @@
+.download-type-btn {
+	color:white;
+	font-size:20px;
+	cursor: pointer;
+	padding:5px 30px 5px 30px;
+	border-radius:20px;
+	margin-right:10px;
+	background-color:#AED025;
+}
+.download-type-btn:hover {
+	background-color:#A8C923;
+}
+.download-shadow {
+	box-shadow: 5px 5px 10px #D6D5D5;
+}
+.download-shadow .download-block {
+	padding:10px;
+}
+.download-shadow .download-block table td {
+	border:0px;
+	line-height:25px;
+	border-bottom:1px dashed #83A400;
+}
+.download-shadow .download-block table td a{
+	color:#424242;
+}
+.download-shadow .download-block table td a:hover{
+	color:#C34412;
+}
+.download-shadow .download-page {
+	text-align:center;
+}
+.download-shadow .download-page li a {
+	color:#787878;
+}
+
+.download-shadow .download-page li a:hover {
+	color:#787878;
+	background-color:#AED025;
+}

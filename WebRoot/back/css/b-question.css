@@ -1,0 +1,29 @@
+/*b-question.jsp*/
+
+
+/*b-question-add.jsp*/
+
+.add-question-module {
+	width: 90%;
+	margin: 5% 0% 0% 3%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+
+textarea {
+	width:720px;
+}
+
+
+
+/*b-question-update.jsp*/
+.update-question-module{
+	width: 90%;
+	margin: 5% 0% 0% 3%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}

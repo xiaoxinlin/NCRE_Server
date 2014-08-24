@@ -1,0 +1,22 @@
+/*b-eaxm.jsp*/
+
+
+/*b-eaxm-add.jsp*/
+
+.add-exam-module {
+	width: 90%;
+	margin: 5% 0% 0% 12%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+/*b-eaxm-update.jsp*/
+.update-exam-module{
+	width: 90%;
+	margin: 5% 0% 0% 10%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

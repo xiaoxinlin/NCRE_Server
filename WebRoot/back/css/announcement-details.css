@@ -1,0 +1,35 @@
+.anno-de-breadnav-bg{
+	background-color:#f2f2f2;
+}
+.anno-de-shadow {
+	background: #f2f2f2;
+    border: solid 1px #cdcdcd;
+    border-top:0px;
+    padding: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px #D6D5D5;
+}
+.anno-de-shadow .anno-de-block {
+	padding:5px;
+	padding-bottom:20px;
+	background-color:#fbfbfb;
+}
+.anno-de-shadow .anno-de-block .anno-de-title {
+	padding:15px;
+	text-align:center;
+}
+.anno-de-shadow .anno-de-block .anno-de-text {
+	font-size:18px;
+	color:black;
+}
+.anno-de-shadow .anno-de-block .anno-de-text p{
+
+    text-indent:2em;
+    line-height:28px;
+}
+.anno-de-shadow .anno-de-block .anno-de-appendix div  a{
+	float:right;
+}
+

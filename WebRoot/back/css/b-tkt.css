@@ -1,0 +1,41 @@
+.tkt-btn {
+	margin-left:4%;
+}
+.tkt-btn button {
+	width: 100px;
+	margin-right: 40px;
+}
+table th {
+	color:white;
+	font-size:13px;
+	font-weight: lighter;
+	background-color: #b2b2b2;
+}
+
+
+
+/*b-tkt-add.jsp*/
+
+.add-tkt-module {
+	width: 95%;
+	margin: 3% 0% 0 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.add-tkt-module .add-tkt-cke {
+	border:1px solid #CFCFCF;
+}
+
+
+/*b-tkt-update.jsp*/
+.update-tkt-module {
+	width: 95%;
+	margin: 3% 0% 0 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.update-tkt-module .update-tkt-cke {
+	border:1px solid #CFCFCF;
+}

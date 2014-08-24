@@ -1,0 +1,24 @@
+/*b-admin.jsp*/
+
+
+/*b-admin-add.jsp*/
+
+.add-admin-module {
+	width: 90%;
+	margin: 5% 0% 0% 12%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+
+
+/*b-admin-update.jsp*/
+.update-admin-module{
+	width: 90%;
+	margin: 5% 0% 0% 10%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
