@@ -20,6 +20,7 @@ import com.ncre.controller.ItemsController;
 import com.ncre.controller.QuestionController;
 import com.ncre.controller.TktController;
 import com.ncre.controller.XztController;
+import com.ncre.interceptor.GlobalInterceptor;
 import com.ncre.model.AdminClass;
 import com.ncre.model.AnnouncementClass;
 import com.ncre.model.FileClass;
@@ -42,8 +43,8 @@ public class DemoConfig extends JFinalConfig{
 	}
 
 	public void configInterceptor(Interceptors arg0) {
-		// TODO Auto-generated method stub
 		
+		arg0.add(new GlobalInterceptor());
 	}
 
 	@Override

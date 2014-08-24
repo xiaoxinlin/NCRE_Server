@@ -159,8 +159,8 @@ public class AnnouncementController extends Controller implements
 		
 		List<AnnouncementClass> Announcements =  AnnouncementClass.dao.find("SELECT * FROM `announcement` GROUP BY id DESC LIMIT 0 , "+counts);
 		//实现了跨域访问数据，后面把这段代码放到拦截器中
-		this.getResponse().setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
-		this.getResponse().setHeader("Access-Control-Allow-Headers", "Origin, Accept, Content-Type,x-requested-with");
+//		this.getResponse().setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
+//		this.getResponse().setHeader("Access-Control-Allow-Headers", "Origin, Accept, Content-Type,x-requested-with");
 		
 		renderJson(Announcements);
 	}
