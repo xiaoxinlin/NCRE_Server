@@ -14,6 +14,7 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.upload.UploadFile;
 import com.ncre.model.FileClass;
+import com.ncre.utils.EnvVar;
 
 public class FileController extends Controller implements
 		BaseControllerI<FileController> {
@@ -196,41 +197,14 @@ public class FileController extends Controller implements
 	public void download(){
 		String id = getPara("id");
 		
-		FileClass file = FileClass.dao.findById(id);
+		FileClass fileClass = FileClass.dao.findById(id);
 		
-		String path= file.get("uri");
-		try{
-	        if(!"".equals(path)){
-	            path=new String(path.getBytes("ISO-8859-1"),"UTF-8");
-	            File downloadFile=new File(path);//构造要下载的文件   
-	            if(downloadFile.exists()){
-	                InputStream ins=new FileInputStream(path);//构造一个读取文件的IO流对象
-	                BufferedInputStream bins=new BufferedInputStream(ins);//放到缓冲流里面
-	                OutputStream outs=this.getResponse().getOutputStream();//获取文件输出IO流
-	                BufferedOutputStream bouts=new BufferedOutputStream(outs);
-	                this.getResponse().setContentType("application/x-download");//设置response内容的类型
-	                this.getResponse().setHeader("Content-disposition","attachment;filename="+ URLEncoder.encode(path, "UTF-8"));//设置头部信息
-	                int bytesRead = 0;
-	                byte[] buffer = new byte[8192];
-	                //开始向网络传输文件流
-	                while ((bytesRead = bins.read(buffer, 0, 8192)) != -1) {
-	                    bouts.write(buffer, 0, bytesRead);
-	                }
-	                bouts.flush();//这里一定要调用flush()方法
-	                ins.close();
-	                bins.close();
-	                outs.close();
-	                bouts.close();
-	            }else{
-	                System.out.println("下载的文件不存在");
-	            }
-	        }else{
-	            System.out.println("下载文件时参数错误");
-	        }
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		String fileName= fileClass.get("uri");
 		
-        renderText("success");
+		
+		File file = new File(EnvVar.getFileAbsPath(fileName));
+		
+		renderFile(file);
+      
 	}
 }
