@@ -19,10 +19,10 @@
 	              		<tr>
 		                  <td><a href="announcement-details.jsp" target="_blank">${i.title }</a></td>
 		                  <td>${i.create_date }</td>
-		                  <td>${i.uri }</td>
+		                  <td><a href="file/download?id=${i.file_id }">${i.uri }</a></td>
 		                  <td>
-		                  	<a name="delete-anno"  class="btn" href="">删除</a>
-		                  	<a name="update-anno"  class="btn" href="b-anno-update.jsp">编辑</a>
+		                  	<a name="delete-anno"  class="btn" href="announcement/delete?id=${i.id }">删除</a>
+		                  	<a name="update-anno"  class="btn" href="announcement/index2update?id=${i.id }">编辑</a>
 		                  </td>
 	                	</tr>
 	              </c:forEach>

@@ -16,8 +16,7 @@ import com.jfinal.upload.UploadFile;
 import com.ncre.model.FileClass;
 import com.ncre.utils.EnvVar;
 
-public class FileController extends Controller implements
-		BaseControllerI<FileController> {
+public class FileController extends BaseControllerImpl  {
 	/**
 	 * 增加一个文件，前台的表单中的enctype必须为multipart/form-data
 	 * 

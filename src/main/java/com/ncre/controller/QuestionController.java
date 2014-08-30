@@ -6,8 +6,7 @@ import com.jfinal.core.Controller;
 import com.ncre.model.QuestionClass;
 import com.ncre.model.TktClass;
 
-public class QuestionController extends Controller implements
-		BaseControllerI<QuestionController> {
+public class QuestionController extends BaseControllerImpl  {
 
 	public void add() {
 

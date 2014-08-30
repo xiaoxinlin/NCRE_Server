@@ -3,7 +3,7 @@ package com.ncre.controller;
 import com.jfinal.core.Controller;
 import com.ncre.model.XztClass;
 
-public class XztController extends Controller implements BaseControllerI<XztController>{
+public class XztController extends BaseControllerImpl{
 
 	public void add() {
 		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)

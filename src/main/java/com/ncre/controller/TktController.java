@@ -9,8 +9,7 @@ import com.jfinal.core.Controller;
 import com.ncre.model.TktClass;
 import com.ncre.service.TktService;
 
-public class TktController extends Controller implements
-		BaseControllerI<TktController> {
+public class TktController extends BaseControllerImpl  {
 
 	public void add() {
 		// TODO Auto-generated method stub

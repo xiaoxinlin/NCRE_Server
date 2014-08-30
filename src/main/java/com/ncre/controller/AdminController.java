@@ -11,8 +11,7 @@ import com.ncre.service.AdminService;
 import com.ncre.service.AnnouncementService;
 import com.ncre.utils.MD5Utils;
 
-public class AdminController extends Controller implements
-		BaseControllerI<AdminController> {
+public class AdminController extends BaseControllerImpl {
 
 	/**
 	 * 增加管理员

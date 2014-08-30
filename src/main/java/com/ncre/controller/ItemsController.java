@@ -13,7 +13,7 @@ import com.ncre.model.XztClass;
 import com.ncre.service.TktService;
 import com.ncre.service.XztService;
 
-public class ItemsController extends Controller implements BaseControllerI<ItemsController>{
+public class ItemsController extends BaseControllerImpl{
 	
 	//获取一套测试题目
 	@Before(CacheInterceptor.class)
