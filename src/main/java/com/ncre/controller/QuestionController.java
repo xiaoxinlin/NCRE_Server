@@ -3,8 +3,12 @@ package com.ncre.controller;
 import java.util.List;
 
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.ncre.model.QuestionClass;
 import com.ncre.model.TktClass;
+import com.ncre.service.AnnouncementService;
+import com.ncre.service.QuestionService;
 
 public class QuestionController extends BaseControllerImpl  {
 
@@ -14,15 +18,15 @@ public class QuestionController extends BaseControllerImpl  {
 
 		questionClass.set("is_legal", false).save();
 
-		redirect("/question/index");
+		redirect("/question/anywhere2index");
 	}
 
 	public void delete() {
 		String id = getPara("id");
 
-		QuestionClass.dao.deleteById(id.toString());
+		QuestionService.delete(id);
 
-		redirect("/question/index");
+		redirect("/question/anywhere2index");
 	}
 
 	public void index() {
@@ -51,13 +55,57 @@ public class QuestionController extends BaseControllerImpl  {
 	public void update() {
 		QuestionClass questionClass = getModel(QuestionClass.class);
 
-		questionClass.dao.findById(questionClass.get("id").toString())
-				.set("title", questionClass.get("title"))
-				.set("answer",questionClass.get("answer"))
-				.set("is_legal", questionClass.get("is_legal"))
-				.update();
+		QuestionService.update(questionClass);
 
-		redirect("/question/index");
+		redirect("/question/anywhere2index");
+	}
+	
+	/**
+	 * 获取记录列表
+	 * @param pageNum,pageSize
+	 * 2014年9月4日 12:45:22
+	 */
+	public void getList(){
+		int pageNum = 1;
+		int pageSize = 9;
+		
+		pageNum = QuestionService.StringNum2int(getPara("pageNow"));
+		System.out.println(pageNum);
+		Page<Record> list = QuestionService.getRecordListByPage(pageNum, pageSize);
+		
+		setAttr("list", list);
+		
+		renderJsp("/questionIndex.jsp");
+		
+	}
+	
+	//一些额外的控制器
+	//2014年9月3日 16:51:05
+	public void anywhere2index(){
+		
+		int pageNum = 1;
+		int pageSize = 9;
+		
+		Page<Record> list  = QuestionService.getRecordListByPage(pageNum, pageSize);
+		
+		this.getRequest().setAttribute("list", list);
+
+		renderJsp("/questionIndex.jsp");
+	}
+	
+	public void index2add(){
+		renderJsp("/question-add.jsp");
+	}
+	
+	public void index2update(){
+		
+		String id = getPara("id");
+		
+		Record record = QuestionService.find(id);
+		
+		setAttr("question", record);
+		
+		renderJsp("/question-update.jsp");
 	}
 
 }

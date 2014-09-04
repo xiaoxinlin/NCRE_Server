@@ -9,16 +9,10 @@
 	<thead>
 		<tr>
 			<th>
-				名称
+				常见问题
 			</th>
 			<th>
-				密码
-			</th>
-			<th>
-				权限
-			</th>
-			<th>
-				创建时间
+				回答
 			</th>
 			<th>
 				操作
@@ -26,46 +20,42 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${adminList.list}" var="i">
+		<c:forEach items="${list.list}" var="i">
 			<tr>
 				<td>
-					${i.name }
+					${i.title }
 				</td>
 				<td>
-					${i.password }
+					${i.answer }
 				</td>
+				
 				<td>
-					${i.authority }
-				</td>
-				<td>
-					${i.reg_date }
-				</td>
-				<td>
-					<a name="delete-admin" class="btn" href="admin/delete?id=${i.id }">删除</a>
-					<a name="update-admin" class="btn" href="admin/index2update?id=${i.id }">编辑</a>
+					<a name="delete-admin" class="btn" href="question/delete?id=${i.id }">删除</a>
+					<a name="update-admin" class="btn"
+						href="question/index2update?id=${i.id }">编辑</a>
 
 				</td>
 			</tr>
 		</c:forEach>
-
+		
 	</tbody>
 </table>
 <div class="b-s-page">
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2 pull-left">
-				<a name="add-admin" class="btn" href="admin/index2add">添加管理员</a>
+				<a name="add-question" class="btn" href="question/index2add">添加常见问题</a>
 			</div>
 			<div class="span8">
 				<ul class="pager">
 					<li>
 						<a
-							href="admin/getAdminList?pageNow=${adminList.pageNumber == 1?1:adminList.pageNumber-1}">上一页</a>
+							href="question/getList?pageNow=${list.pageNumber == 1?1:list.pageNumber-1}">上一页</a>
 					</li>
-					<li>　第&nbsp${adminList.pageNumber }&nbsp页　 /　 共&nbsp${adminList.totalPage }&nbsp页　 </li>
+					<li>　第&nbsp${list.pageNumber }&nbsp页　 /　 共&nbsp${list.totalPage }&nbsp页　 </li>
 					<li>
 						<a
-							href="admin/getAdminList?pageNow=${adminList.pageNumber == adminList.totalPage?adminList.pageNumber:adminList.pageNumber+1}">下一页</a>
+							href="question/getList?pageNow=${list.pageNumber == list.totalPage?list.pageNumber:list.pageNumber+1}">下一页</a>
 					</li>
 				</ul>
 			</div>

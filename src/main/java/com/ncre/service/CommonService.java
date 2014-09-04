@@ -18,4 +18,19 @@ public class CommonService {
 		Page<Record>  recordList  = Db.paginate(pageNum, pageSize,  "select *",  sql);
 		return recordList;
 	}
+	
+	/**
+	 * 字符型数字转换成整型数字， 如果转换出错，则默认该数字为1
+	 * @param num
+	 * @return
+	 */
+	public static int StringNum2int(String num){
+		int numI = 1;
+		try {
+			numI = Integer.parseInt( num );
+		} catch (Exception e) {
+			numI = 1;
+		}
+		return numI;
+	}
 }
