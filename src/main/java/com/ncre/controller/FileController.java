@@ -1,20 +1,16 @@
 package com.ncre.controller;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URLEncoder;
 
 import com.jfinal.aop.Before;
-import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.upload.UploadFile;
 import com.ncre.model.FileClass;
+import com.ncre.service.FileService;
 import com.ncre.utils.EnvVar;
+import com.ncre.utils.FileType;
 
 public class FileController extends BaseControllerImpl  {
 	/**
@@ -28,34 +24,10 @@ public class FileController extends BaseControllerImpl  {
 	public void add() {
 
 		// 保存文件到WebRoot/upload中，同时把文件信息封装到uploadFile对象中
-		UploadFile uploadFile = getFile();
-
-		// 系统修改后的上传文件的名字
-		String oldUri = uploadFile.getSaveDirectory()
-				+ uploadFile.getFileName();
-
-		// 上传文件的原始名字
-		String newUri = uploadFile.getSaveDirectory()
-				+ uploadFile.getOriginalFileName();
-
-		// 修改文件的名字，使得文件名相同的文件只在文件夹中存在一份
-		File file = new File(oldUri);
-		File newFile = new File(newUri);
-
-		if (!oldUri.equals(newUri)) {
-			if (!newFile.exists()) {
-				file.renameTo(newFile);
-			} else {
-				if(file.exists())file.delete();
-			}
-		}
-
-		// 把文件信息保存到数据库中
+		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,600000000);
 		FileClass fileClass = getModel(FileClass.class);
-		fileClass.set("uri", newUri).set("upload_date", new java.util.Date())
-				.save();
-
-		renderJson(fileClass);
+		FileService.save(fileClass, uploadFile);
+		redirect("/file/anywhere2soft");
 	}
 
 	/**
@@ -68,25 +40,8 @@ public class FileController extends BaseControllerImpl  {
 	public void delete() {
 
 		String id = getPara("id");
-		FileClass fileClass = null;
-		File file = null;
-		try {
-			fileClass = FileClass.dao.findById(id);
-			fileClass.delete();
-
-			// 删除文件
-			// file = new File(fileClass.get("uri").toString());
-			//
-			// if (file != null || file.exists()) {
-			// file.delete();
-			// renderText("success");
-			// } else {
-			// renderText("file not exist!");
-			// }
-
-		} catch (Exception e) {
-			renderText("id not exist!");
-		}
+		FileService.delete(id);
+		redirect("/file/anywhere2soft");
 	}
 	/**
 	 * 获取文件第一页列表,每一页为14条记录
@@ -150,44 +105,15 @@ public class FileController extends BaseControllerImpl  {
 	 */
 	public void update() {
 
-		// 保存文件到WebRoot/upload中，同时把文件信息封装到uploadFile对象中
-		UploadFile uploadFile = getFile();
-
-		// 把文件信息保存到对象中
-		FileClass fileClass = getModel(FileClass.class);
-
-
-		// 系统修改后的上传文件的名字
-		String oldUri = uploadFile.getSaveDirectory()
-				+ uploadFile.getFileName();
-
-		// 上传文件的原始名字
-		String newUri = uploadFile.getSaveDirectory()
-				+ uploadFile.getOriginalFileName();
-
-		// 修改文件的名字，使得文件名相同的文件只在文件夹中存在一份
-		File file = new File(oldUri);
-		File newFile = new File(newUri);
-
-		if (!oldUri.equals(newUri)) {
-			if (!newFile.exists()) {
-				file.renameTo(newFile);
-			} else {
-				if(file.exists())file.delete();
-			}
+		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,600000000);
+		if(uploadFile == null){
+			//TODO:
 		}
-
-		// 修改文件对象的uri
-		fileClass.set(
-				"uri",
-				uploadFile.getSaveDirectory()
-						+ uploadFile.getOriginalFileName()).set("upload_date",
-				new java.util.Date());
-
-		// 更新数据库里面的信息
-		fileClass.update();
-
-		renderJson(fileClass);
+		FileClass fileClass = getModel(FileClass.class);
+		
+		FileService.update(fileClass,uploadFile);
+		
+		redirect("/file/anywhere2soft");
 	}
 	
 	/**文件下载功能
@@ -205,5 +131,39 @@ public class FileController extends BaseControllerImpl  {
 		
 		renderFile(file);
       
+	}
+	
+	public void getSoftList(){
+		int pageNum = FileService.StringNum2int(getPara("pageNow"));
+		int pageSize = 9;
+		Page<Record> list = FileService.getRecordList(pageNum, pageSize, FileType.SOFTWARE);
+		setAttr("list", list);
+		renderJsp("/softIndex.jsp");
+	}
+	
+	//过渡的控制器
+	public void anywhere2soft(){
+		int pageNum = 1;
+		int pageSize = 9;
+		
+		Page<Record> list = FileService.getRecordList(pageNum, pageSize, FileType.SOFTWARE);
+		
+		setAttr("list", list);
+		
+		renderJsp("/softIndex.jsp");
+	}
+	
+	public void index2softAdd(){
+		renderJsp("/soft-add.jsp");
+	}
+	
+	public void index2softUpdate(){
+		String id = getPara("id");
+		
+		FileClass fileClass = FileService.find(id);
+		
+		setAttr("file", fileClass);
+		
+		renderJsp("/soft-update.jsp");
 	}
 }

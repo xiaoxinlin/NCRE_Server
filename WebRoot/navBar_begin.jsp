@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link href="css/cke.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/b-admin.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/b-question.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/b-soft.css" type="text/css" media="screen" />
 		
 		<script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
