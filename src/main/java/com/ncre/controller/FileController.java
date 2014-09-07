@@ -27,7 +27,13 @@ public class FileController extends BaseControllerImpl  {
 		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,600000000);
 		FileClass fileClass = getModel(FileClass.class);
 		FileService.save(fileClass, uploadFile);
-		redirect("/file/anywhere2soft");
+		if(fileClass.getInt("type") == FileType.DOC){
+			
+			redirect("/file/anywhere2doc");
+		}else if(fileClass.getInt("type") == FileType.SOFTWARE){
+			
+			redirect("/file/anywhere2soft");
+		}
 	}
 
 	/**
@@ -141,7 +147,15 @@ public class FileController extends BaseControllerImpl  {
 		renderJsp("/softIndex.jsp");
 	}
 	
-	//过渡的控制器
+	public void getDocList(){
+		int pageNum = FileService.StringNum2int(getPara("pageNow"));
+		int pageSize = 9;
+		Page<Record> list = FileService.getRecordList(pageNum, pageSize, FileType.DOC);
+		setAttr("list", list);
+		renderJsp("/docIndex.jsp");
+	}
+	
+	//到软件管理过渡的控制器
 	public void anywhere2soft(){
 		int pageNum = 1;
 		int pageSize = 9;
@@ -165,5 +179,31 @@ public class FileController extends BaseControllerImpl  {
 		setAttr("file", fileClass);
 		
 		renderJsp("/soft-update.jsp");
+	}
+	
+	//到文档管理的过渡控制器
+	public void anywhere2doc(){
+		int pageNum = 1;
+		int pageSize = 9;
+		
+		Page<Record> list = FileService.getRecordList(pageNum, pageSize, FileType.DOC);
+		
+		setAttr("list", list);
+		
+		renderJsp("/docIndex.jsp");
+	}
+	
+	public void index2docAdd(){
+		renderJsp("/doc-add.jsp");
+	}
+	
+	public void index2docUpdate(){
+		String id = getPara("id");
+		
+		FileClass fileClass = FileService.find(id);
+		
+		setAttr("file", fileClass);
+		
+		renderJsp("/doc-update.jsp");
 	}
 }

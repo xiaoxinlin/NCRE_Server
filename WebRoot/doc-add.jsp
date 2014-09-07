@@ -30,7 +30,7 @@
 			</div>
 		</div>
 	</div>
-	<input class="hidden" name="fileClass.type" value="2"/>
+	<input class="hidden" name="fileClass.type" value="1"/>
 	<div class="control-group">
 		<div class="controls">
 			<input type="hidden" name="type" value="soft" />

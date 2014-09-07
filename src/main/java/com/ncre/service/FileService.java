@@ -36,8 +36,7 @@ public class FileService extends CommonService{
 		boolean flag = false;
 		
 		fileClass.set("uri", uploadFile.getFileName() )
-		.set("upload_date", new java.util.Date() )
-		.set("type", FileType.SOFTWARE);
+		.set("upload_date", new java.util.Date() );
 		
 		flag = fileClass.save();
 		return flag;
