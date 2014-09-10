@@ -53,17 +53,17 @@ public class ItemsController extends BaseControllerImpl{
 
 
 	public void show() {
-		String type = getPara("type");
-		System.out.println(type);
-		if("".equals(type) || type == null){
-			renderText("参数出错");
-			return;
-		}
-		
-		List<XztClass> xztList = XztService.showXzt(type);
-		
-		renderJson(xztList);
-		return;
+//		String type = getPara("type");
+//		System.out.println(type);
+//		if("".equals(type) || type == null){
+//			renderText("参数出错");
+//			return;
+//		}
+//		
+//		List<XztClass> xztList = XztService.showXzt(type);
+//		
+//		renderJson(xztList);
+//		return;
 	}
 
 	public void update() {

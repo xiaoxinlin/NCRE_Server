@@ -3,12 +3,44 @@ package com.ncre.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.ncre.model.XztClass;
 
 
-public class XztService {
+public class XztService extends CommonService{
 	
-	public static List<XztClass> showXzt(String type) {
+	//增加一个对象
+	public static boolean save(XztClass xztClass){
+		return xztClass.save();
+	}
+	
+	//删除一个对象
+	public static boolean delete(Object id){
+		return XztClass.dao.deleteById(id);
+	}
+	
+	//更新一个对象
+	public static boolean update(XztClass xztClass){
+		return xztClass.update();
+	}
+	
+	//查找一个对象
+	public static XztClass find(Object id){
+		return XztClass.dao.findById(id);
+	}
+	
+	//得到对象记录
+	public static Page<Record> getRecordList(int pageNum,int pageSize,int subjectType){
+		String select = "select *";
+		String sqlExceptSelect = "from `xzt` where subject_type = '"+subjectType+"'";
+		Page<Record> list = Db.paginate(pageNum, pageSize, select, sqlExceptSelect);
+		return list;
+	}
+	
+	
+	/*public static List<XztClass> showXzt(String type) {
 
 		String sql = "select id from xzt where subject_type = '" + type + "'";
 		String index = "";
@@ -49,5 +81,5 @@ public class XztService {
 		List<XztClass> xztList = XztClass.dao.find(sql);
 
 		return xztList;
-	}
+	}*/
 }

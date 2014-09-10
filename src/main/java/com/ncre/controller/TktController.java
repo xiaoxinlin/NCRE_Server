@@ -13,7 +13,7 @@ public class TktController extends BaseControllerImpl  {
 	 */
 	public void add() {
 		TktClass tktClass = getModel(TktClass.class);
-		int subjectType = TktService.StringNum2int(getPara("subject-type"));
+		int subjectType = TktService.StringNum2int(tktClass.getStr("subject_type"));
 		TktService.save(tktClass);
 		redirect("/tkt/getDiffSubIndex?subject-type="+subjectType);
 	}

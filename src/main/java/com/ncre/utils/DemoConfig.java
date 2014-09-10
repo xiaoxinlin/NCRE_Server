@@ -13,6 +13,7 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
+import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -62,7 +63,7 @@ public class DemoConfig extends JFinalConfig{
 	public void configInterceptor(Interceptors arg0) {
 		
 		arg0.add(new GlobalInterceptor());
-		//arg0.add(new SessionInViewInterceptor());
+		arg0.add(new SessionInViewInterceptor(true));
 	}
 
 	@Override

@@ -1,100 +1,102 @@
 package com.ncre.controller;
 
-import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.ncre.model.XztClass;
+import com.ncre.service.XztService;
+import com.ncre.utils.SubjectType;
 
 public class XztController extends BaseControllerImpl{
 
+	/**
+	 * save Object
+	 */
 	public void add() {
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "1*1=").set("option1", 1).set("option2", 2).set("option3", 3)
-		.set("option4", 4).set("answer", 1).set("subject_type", "math").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		new XztClass().set("title", "abcd").set("option1", "a").set("option2", "b").set("option3", "c")
-		.set("option4", "d").set("answer", 1).set("subject_type", "english").save();
-		
-		
-		renderText("xzt add");
-		return ;
+		XztClass xztClass = getModel(XztClass.class);
+		int subjectType = XztService.StringNum2int(xztClass.getStr("subject_type"));
+		XztService.save(xztClass);
+		redirect("/xzt/getDiffSubIndex?subject-type="+subjectType);
 	}
 
+	/**
+	 * delete Object
+	 */
 	public void delete() {
-		// TODO Auto-generated method stub
-		
+		String id = getPara("id");
+		int subjectType = XztService.StringNum2int(getPara("subject-type"));
+		XztService.delete(id);
+		redirect("/xzt/getDiffSubIndex?subject-type="+subjectType);
 	}
 
 	public void index() {
-		// TODO Auto-generated method stub
 		
 	}
+
 
 	public void show() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
+	/**
+	 * update Object
+	 */
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		XztClass tktClass = getModel(XztClass.class);
+		int subjectType = XztService.StringNum2int(getPara("subject-type"));
+		XztService.update(tktClass);
+		redirect("/xzt/getDiffSubIndex?subject-type="+subjectType);
 	}
 	
-
+	/**
+	 * 获取不同科目的首页
+	 */
+	public void getDiffSubIndex(){
+		int subjectType = XztService.StringNum2int( getPara("subject-type") );
+		int pageNum = 1;
+		int pageSize = 2;
+		Page<Record> list = XztService.getRecordList(pageNum, pageSize, subjectType);
+		setAttr("list", list);
+		setAttr("subjectType",subjectType);
+		renderJsp("/xztIndex.jsp");
+	}
+	
+	/**
+	 * 获取一个对象列表
+	 */
+	public void getList(){
+		int subjectType = XztService.StringNum2int( getPara("subject-type") );
+		int pageNum = XztService.StringNum2int( getPara("pageNow") );
+		int pageSize = 2;
+		Page<Record> list = XztService.getRecordList(pageNum, pageSize, subjectType);
+		setAttr("list", list);
+		setAttr("subjectType",subjectType);
+		renderJsp("/xztIndex.jsp");
+	}
+	
+	//过渡的一些控制器
+	
+	public void anywhere2index(){
+		int pageNum = 1;
+		int pageSize = 2;
+		int subjectType = SubjectType.COMPUTER_BASIC_and_WPS_OFFICE;
+		Page<Record> list = XztService.getRecordList(pageNum, pageSize, subjectType);
+		setAttr("list", list);
+		setAttr("subjectType",subjectType);
+		renderJsp("/xztIndex.jsp");
+	}
+	
+	public void index2add(){
+		int subjectType = XztService.StringNum2int(getPara("subject-type"));
+		setAttr("subjectType", subjectType);
+		renderJsp("/xzt-add.jsp");
+	}
+	
+	public void index2update(){
+		String id = getPara("id");
+		XztClass xztClass = XztService.find(id);
+		int subjectType = XztService.StringNum2int(getPara("subject-type"));
+		setAttr("subjectType", subjectType);
+		setAttr("xzt",xztClass);
+		renderJsp("/xzt-update.jsp");
+	}
 }

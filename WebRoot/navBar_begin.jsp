@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="css/b-soft.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/b-exam.css" type="text/css" media="screen" />
 		<link href="css/b-tkt.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/b-xzt.css" type="text/css" media="screen" />
 		
 		<script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -48,15 +49,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h1 class="site_title">管理员</h1>
 				<h2 class="section_title">全国计算机等级考试培训系统后台管理</h2>
 				<div class="btn_view_site">
-					<a class="btn btn-inverse" href="b-update-pass.jsp">修改密码</a>
-					<a class="btn btn-inverse" href="">退出</a>
+					<a class="btn btn-inverse" href="#">修改密码</a>
+					<a class="btn btn-inverse" href="admin/logout">退出</a>
 				</div>
 			</hgroup>
 		</header> <!-- end of header bar -->
 		
 		<section id="secondary_bar">
 			<div class="user">
-				<p>${ sessionScope["admin"].name }</p>
+				<p>${ session.admin.name }</p>
 			</div>
 			<div class="breadcrumbs_container">
 				<article class="breadcrumbs"><a class="current">后台管理</a> <div class="breadcrumb_divider"></div> <%--<a class="current">Dashboard</a>--%></article>
@@ -78,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="accordion-group">
 				   <div class="accordion-heading">
-					    <a class="accordion-toggle" href="b-xzt.jsp">
+					    <a class="accordion-toggle" href="xzt/anywhere2index">
 					    	  选择题管理<span class="badge pull-right ">＞</span>
 					    </a>
 				    </div>
@@ -112,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    </a>
 				    </div>
 				</div>
-				<div class="accordion-group">
+				<div class="accordion-group ${session.admin.authority==2?'hidden':'' }"  >
 				    <div class="accordion-heading">
 					    <a class="accordion-toggle" href="admin/anywhere2index">
 					      	管理员管理<span class="badge pull-right">＞</span>

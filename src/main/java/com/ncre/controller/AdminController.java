@@ -2,6 +2,8 @@ package com.ncre.controller;
 
 import java.util.List;
 
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
@@ -97,23 +99,47 @@ public class AdminController extends BaseControllerImpl {
 	 *            redirect /b-login.jsp
 	 * 
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
 	public void login() {
 
 		AdminClass adminClass = getModel(AdminClass.class);
 
-		List<Record> adminClass2 = Db.find("select * from `admin` where name='"
+//		List<Record> adminClass2 = Db.find("select * from `admin` where name='"
+//				+ adminClass.getStr("name") + "' and password='"
+//				+ MD5Utils.GetMD5Code(adminClass.getStr("password")) + "'");
+//
+//		if (adminClass2.size()==0) {
+//			redirect("/login.jsp");
+//		}else if(adminClass2.size()>0){
+//			this.getSession().setAttribute("admin", adminClass2.get(0).getColumns());
+//
+//			redirect("/announcement/getAnnounList?pageNow=1");
+//		}
+//		return;
+		
+		AdminClass adminClass2 = AdminClass.dao.findFirst("select * from `admin` where name='"
 				+ adminClass.getStr("name") + "' and password='"
 				+ MD5Utils.GetMD5Code(adminClass.getStr("password")) + "'");
 
 		if (adminClass2 == null) {
-			redirect("/b-login.jsp");
-			return;
+			redirect("/login.jsp");
+		}else{
+			this.setSessionAttr("admin", adminClass2);
+
+			redirect("/announcement/getAnnounList?pageNow=1");
 		}
-
-		this.getSession()
-				.setAttribute("admin", adminClass2.get(0).getColumns());
-
-		redirect("/announcement/getAnnounList?pageNow=1");
+		return;
+		
+	}
+	
+	/**
+	 * 注销
+	 * 2014年9月10日 23:58:07
+	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	public void logout(){
+		this.getSession().removeAttribute("admin");
+		redirect("/login.jsp");
 	}
 
 		public void index() {
