@@ -3,6 +3,8 @@ package com.ncre.utils;
 
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -10,7 +12,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
-import com.jfinal.ext.interceptor.SessionInViewInterceptor;
+import com.jfinal.core.JFinal;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -32,9 +34,23 @@ import com.ncre.model.XztClass;
 
 public class DemoConfig extends JFinalConfig{
 
+	
+	@Override
+	public void afterJFinalStart() {
+		JFinal.me().getServletContext().setAttribute("subjects", Subjects.getInstance().subjectsTable);
+		//填空题类型
+		List<String> tktType = new ArrayList<String>();
+		tktType.add("填空题");
+		tktType.add("大题");
+		JFinal.me().getServletContext().setAttribute("tktType", tktType);
+	}
+
 	public void configConstant(Constants arg0) {
 		loadPropertyFile("myconfig.txt");
-	
+		
+		Subjects subjects = Subjects.getInstance();
+		
+		
 		arg0.setDevMode(true);
 		//arg0.setViewType(ViewType.JSP);
 	}

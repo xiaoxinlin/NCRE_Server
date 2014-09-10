@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="css/b-question.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/b-soft.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/b-exam.css" type="text/css" media="screen" />
+		<link href="css/b-tkt.css" rel="stylesheet" type="text/css">
 		
 		<script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -84,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="accordion-group">
 				   <div class="accordion-heading">
-					    <a class="accordion-toggle" href="b-tkt.jsp">
+					    <a class="accordion-toggle" href="tkt/anywhere2index">
 					    	  填空题管理<span class="badge pull-right ">＞</span>
 					    </a>
 				    </div>

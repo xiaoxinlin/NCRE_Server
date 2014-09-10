@@ -19,25 +19,25 @@ public class ItemsController extends BaseControllerImpl{
 	@Before(CacheInterceptor.class)
 	@CacheName("items2Index")
 	public void index(){	
-		String type = getPara("type");
-		System.out.println(type);
-		if("".equals(type) || type == null){
-			renderText("参数出错");
-			return;
-		}
-		List items = new ArrayList();
-		
-
-		List<XztClass> xztList = XztService.showXzt(type);
-		List<TktClass> tktList1 = TktService.showLTkt(type);
-		List<TktClass> tktList2 = TktService.showBTkt(type);
-	
-		items.add(xztList);
-		items.add(tktList1);
-		items.add(tktList2);
-		
-		if(items!=null) renderJson(items);
-		return;
+//		String type = getPara("type");
+//		System.out.println(type);
+//		if("".equals(type) || type == null){
+//			renderText("参数出错");
+//			return;
+//		}
+//		List items = new ArrayList();
+//		
+//
+//		List<XztClass> xztList = XztService.showXzt(type);
+//		List<TktClass> tktList1 = TktService.showLTkt(type);
+//		List<TktClass> tktList2 = TktService.showBTkt(type);
+//	
+//		items.add(xztList);
+//		items.add(tktList1);
+//		items.add(tktList2);
+//		
+//		if(items!=null) renderJson(items);
+//		return;
 	}
 
 	public void add() {
