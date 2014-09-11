@@ -3,10 +3,13 @@ package com.ncre.controller;
 import java.io.File;
 
 import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.upload.UploadFile;
+import com.ncre.interceptor.AccessControlAllowOrigin;
 import com.ncre.model.FileClass;
 import com.ncre.service.FileService;
 import com.ncre.utils.EnvVar;
@@ -54,6 +57,8 @@ public class FileController extends BaseControllerImpl  {
 	 * @param pageNum
 	 * @return 返回一个page对象
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void index() {
 		int pageNumber = 1;
 		if(getPara("page") != null){
@@ -62,7 +67,7 @@ public class FileController extends BaseControllerImpl  {
 		
 		int pageSize = 14;
 		Page<FileClass> fileList = FileClass.dao.paginate(pageNumber, pageSize,
-				"select *", " from file " );
+				"select *", " from file where type in (1,2)" );
 		renderJson(fileList);
 	}
 	/**
@@ -74,12 +79,15 @@ public class FileController extends BaseControllerImpl  {
 	 *        	  -- 页码
 	 * @return 返回一个page对象
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void indexByType() {
-		String type = getPara("type");
-		int pageNumber = 1;
-		if(getPara("page") != null){
-			pageNumber = Integer.parseInt( getPara("page") );
+		String type = "(1,2)";
+		if( getPara("type") != null ){
+			type = getPara("type");
 		}
+		
+		int pageNumber = FileService.StringNum2int(getPara("page"));
 		int pageSize = 14;
 		Page<FileClass> fileList = FileClass.dao.paginate(pageNumber, pageSize,
 				"select *", " from file where type = ?", type);
@@ -125,6 +133,8 @@ public class FileController extends BaseControllerImpl  {
 	/**文件下载功能
 	 *@param id 
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void download(){
 		String id = getPara("id");
 		

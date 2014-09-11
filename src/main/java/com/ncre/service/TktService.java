@@ -35,7 +35,7 @@ public class TktService extends CommonService{
 	}
 	
 	//得到随机填空题对象列表
-	public static List<TktClass> getRandomLTktList(String type,int pageSize) {
+	public static List<TktClass> getRandomLTktList(int type,int pageSize) {
 
 		String index = getLtktRandom(type,pageSize);
 		// 从数据库中查询随机的数据
@@ -46,7 +46,7 @@ public class TktService extends CommonService{
 	}
 	
 	//得到随机填空题对象记录
-	public static List<Record> getRandomLTktRecord(String type,int pageSize) {
+	public static List<Record> getRandomLTktRecord(int type,int pageSize) {
 
 		String index = getLtktRandom(type,pageSize);
 		// 从数据库中查询随机的数据
@@ -66,7 +66,7 @@ public class TktService extends CommonService{
 //	}
 	
 	//得到随机大题对象列表
-	public static List<TktClass> getRandomBTktList(String type,int counts) {
+	public static List<TktClass> getRandomBTktList(int type,int counts) {
 
 		String index = getBtktRandom(type,counts);
 		// 从数据库中查询随机的数据
@@ -77,7 +77,7 @@ public class TktService extends CommonService{
 	}
 	
 	//得到随机大题对象记录
-	public static List<Record> getRandomBTktRecord(String type,int counts) {
+	public static List<Record> getRandomBTktRecord(int type,int counts) {
 
 		String index = getBtktRandom(type,counts);
 		// 从数据库中查询随机的数据
@@ -94,6 +94,7 @@ public class TktService extends CommonService{
 		Page<Record> list = Db.paginate(pageNum, pageSize, select, sqlExceptSelect);
 		return list;
 	}
+	
 	
 	//产生指定长度的随机数
 	private static String getRandom(String sql,int size){
@@ -115,8 +116,8 @@ public class TktService extends CommonService{
 					break;
 				}
 				// 如果列表中不包含该id，则把该id放入列表
-				if (!tktIdList.contains(nums.get(temp).getStr("id"))) {
-					tktIdList.add(nums.get(temp).getStr("id"));
+				if (!tktIdList.contains(nums.get(temp).get("id").toString())) {
+					tktIdList.add(nums.get(temp).get("id").toString());
 				}
 			}
 
@@ -124,7 +125,7 @@ public class TktService extends CommonService{
 			// 如果数据少于十行，则全部放入列表
 			for (TktClass num : nums) {
 
-				tktIdList.add(num.getStr("id"));
+				tktIdList.add(num.get("id").toString());
 			}
 		}
 		// 把随机的id拼接成一个字符串
@@ -137,17 +138,46 @@ public class TktService extends CommonService{
 		return index;
 	}
 	//得到填空题的随机数
-	private static String getLtktRandom(String type,int size){
+	private static String getLtktRandom(int type,int size){
 		String sql = "select id from tkt where type = '" + TKT_LITTLE
 		+ "' and subject_type = '" + type + "'";
 		String index = getRandom(sql,size);
 		return index;
 	}
 	//得到大题的随机数
-	private static String getBtktRandom(String type,int size){
+	private static String getBtktRandom(int type,int size){
 		String sql = "select id from tkt where type = '" + TKT_BIG
 		+ "' and subject_type = '" + type + "'";
 		String index = getRandom(sql,size);
 		return index;
+	}
+	
+	//得到一个填空题对象
+	public static TktClass getSingleLTkt(int type){
+		int size = 1;
+		String index = getLtktRandom(type, size);
+		
+		String sql = "select * from `tkt` where id in (" + index + ")";
+		
+		return TktClass.dao.findFirst(sql);
+	}
+	//得到一个大题
+	public static TktClass getSingleBTkt(int type){
+		int size = 1;
+		String index = getBtktRandom(type, size);
+		
+		String sql = "select * from `tkt` where id in (" + index + ")";
+		
+		return TktClass.dao.findFirst(sql);
+	}
+	
+	//得到2个填空题对象
+	public static List<TktClass> getLTktList(int type){
+		int size = 2;
+		String index = getLtktRandom(type, size);
+		
+		String sql = "select * from `tkt` where id in (" + index + ")";
+		
+		return TktClass.dao.find(sql);
 	}
 }

@@ -13,8 +13,6 @@ public class GlobalInterceptor implements Interceptor {
 			if( "/admin".equals( ai.getControllerKey() ) ){
 				AdminClass adminClass = ai.getController().getSessionAttr("admin");
 				if( 1 != adminClass.getInt("authority") ){
-					System.out.println("wo bu shi guan li yuan");
-					System.out.println(adminClass.get("authority"));
 					ai.getController().redirect("/announcement/anywhere2index");
 					
 				}else{

@@ -2,9 +2,13 @@ package com.ncre.controller;
 
 import java.util.List;
 
+import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
+import com.ncre.interceptor.AccessControlAllowOrigin;
 import com.ncre.model.QuestionClass;
 import com.ncre.model.TktClass;
 import com.ncre.service.AnnouncementService;
@@ -29,23 +33,31 @@ public class QuestionController extends BaseControllerImpl  {
 		redirect("/question/anywhere2index");
 	}
 
+	/**
+	 * 给前台返回一个问题列表
+	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void index() {
-		String pageNow = getPara("page");
-		if("".equals(pageNow) || pageNow == null){
-			pageNow = "1";
-		}
-		List<QuestionClass> questionList = QuestionClass.dao
-				.find("select * from `question`");
+		int pageNumber = QuestionService.StringNum2int( getPara("page") );
+		int pageSize = 14;
+		String select = "select id,title";
+		String sqlExceptSelect = "from `question`";
+		Page<QuestionClass> questionList = QuestionClass.dao.paginate(pageNumber, pageSize, select, sqlExceptSelect);
 
 		renderJson(questionList);
-
 		return;
-	}
 
+	}
+	/**
+	 * 给前台返回一个问题对象
+	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void show() {
 		String id = getPara("id");
 
-		QuestionClass questionClass = QuestionClass.dao.findById(id.toString());
+		QuestionClass questionClass = QuestionClass.dao.findById(id);
 
 		renderJson(questionClass);
 

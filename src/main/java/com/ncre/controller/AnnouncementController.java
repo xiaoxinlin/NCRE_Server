@@ -4,12 +4,15 @@ import java.io.File;
 import java.util.List;
 
 import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.upload.UploadFile;
+import com.ncre.interceptor.AccessControlAllowOrigin;
 import com.ncre.model.AnnouncementClass;
 import com.ncre.model.FileClass;
 import com.ncre.service.AnnouncementService;
@@ -53,15 +56,21 @@ public class AnnouncementController extends BaseControllerImpl {
 	 * 
 	 * @param pageNow
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void index() {
 
 		// 获取当前页数，若为空，则默认为1
-		String pageNow = getPara("pageNow");
+		int pageNumber = AnnouncementService.StringNum2int( getPara("page") );
 		
 		// 每一页的数据数
-		int pageSize = 10;
+		int pageSize = 14;
+		
+		String select = "select id,title,create_date";
+		
+		String sqlExceptSelect = "from `announcement`";
 
-		Page<AnnouncementClass> announcementList = AnnouncementService.getAnnounByPage(pageNow,pageSize,AnnouncementService.ANNOOFOBJECT);
+		Page<AnnouncementClass> announcementList = AnnouncementClass.dao.paginate(pageNumber, pageSize, select, sqlExceptSelect);
 
 		renderJson(announcementList);
 
@@ -86,11 +95,13 @@ public class AnnouncementController extends BaseControllerImpl {
 	}
 
 	/**
-	 * 显示某一条公告的详细信息
+	 * 前台返回一个公告对象
 	 * 
 	 * @param id
 	 * @return
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void show() {
 
 		String id = getPara("id");
@@ -122,15 +133,17 @@ public class AnnouncementController extends BaseControllerImpl {
 	}
 
 	/**
-	 * 显示首页公告
+	 * 显示前台首页公告
 	 * 
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void showIndexAnnouncement(){
 		
 		String  counts = "7";
 		
-		List<AnnouncementClass> Announcements =  AnnouncementClass.dao.find("SELECT * FROM `announcement` GROUP BY id DESC LIMIT 0 , "+counts);
-
+		List<AnnouncementClass> Announcements =  AnnouncementClass.dao.find("SELECT id,title,create_date FROM `announcement` GROUP BY id DESC LIMIT 0 , "+counts);
+		
 		
 		renderJson(Announcements);
 	}
