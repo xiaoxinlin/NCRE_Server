@@ -113,35 +113,35 @@
 <table class="table table-bordered">
 	<c:forEach items="${list.list}" var="i">
 		<tr>
-		<th>
+		<th style="width:50px;">
 			题目
 		</th>
-		<td>
+		<td style="width:500px;">
 			${i.title }
 		</td>
-		<td rowspan="6">
+		<td rowspan="6" style="width:100px;">
 			<a name="delete-xzt" class="btn" href="xzt/delete?id=${i.id }&subject-type=${subjectType}">删除</a>
 			<a name="update-xzt" class="btn" href="xzt/index2update?id=${i.id }&subject-type=${subjectType}">编辑</a>
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<th style="width:50px;">
 			选项A
 		</th>
-		<td>
+		<td >
 			${i.option1 }
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<th style="width:50px;">
 			选项B
 		</th>
-		<td>
+		<td >
 			${i.option2 }
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<th style="width:50px;">
 			选项C
 		</th>
 		<td>
@@ -149,18 +149,18 @@
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<th style="width:50px;">
 			选项D
 		</th>
-		<td>
+		<td >
 			${i.option4 }
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<th style="width:50px;">
 			答案
 		</th>
-		<td>
+		<td >
 			${i.answer }
 		</td>
 	</tr>

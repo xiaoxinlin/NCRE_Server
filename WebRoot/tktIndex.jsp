@@ -113,22 +113,22 @@
 <table class="table table-bordered"...>
 	<c:forEach items="${list.list}" var="i">
 		<tr>
-			<th>
+			<th style="width:50px;">
 				题目
 			</th>
 			<td>
 				${i.title }
 			</td>
-			<td rowspan="2">
+			<td rowspan="2" style="width:60px;">
 				${tktType[i.type] }
 			</td>
-			<td rowspan="2">
+			<td rowspan="2" style="width:150px;">
 				<a name="delete-anno" class="btn" href="tkt/delete?id=${i.id }&subject-type=${subjectType}">删除</a>
 				<a name="update-anno" class="btn" href="tkt/index2update?id=${i.id }&subject-type=${subjectType}">编辑</a>
 			</td>
 		</tr>
 		<tr>
-			<th>
+			<th style="width:50px;">
 				答案
 			</th>
 			<td>

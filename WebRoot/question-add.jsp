@@ -9,13 +9,15 @@
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>常见问题：</h4></label>
 		              <div class="controls">
-		              	<textarea rows="8" cols="50" name="questionClass.title"></textarea>
+		              	<textarea rows="5" cols="50" name="questionClass.title"></textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>回答：</h4></label>
 		              <div class="controls">
-		              	<textarea rows="8" cols="50" name="questionClass.answer"></textarea>
+		              	<textarea rows="8" cols="50" name="questionClass.answer">
+		              	
+		              	</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">

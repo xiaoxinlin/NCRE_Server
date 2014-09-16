@@ -8,13 +8,13 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th>
+			<th style="width:150px;">
 				常见问题
 			</th>
 			<th>
 				回答
 			</th>
-			<th>
+			<th style="width:150px;">
 				操作
 			</th>
 		</tr>

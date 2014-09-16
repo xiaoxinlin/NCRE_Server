@@ -10,39 +10,35 @@
 		              <label class="control-label" for=""><h4>选择题题目：</h4></label>
 		              <div class="controls add-xzt-cke">
 		                <textarea name="xztClass.title" style="height: 500px" >
-							请点击这里添加公告内容......
+							请点击这里添加内容......
 						</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>选项A：</h4></label>
 		              <div class="controls">
-		                <textarea name="xztClass.option1" style="height: 500px" >
-							请点击这里添加公告内容......
+		                <textarea name="xztClass.option1" rows="1" cols="50" >
 						</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>选项B：</h4></label>
 		              <div class="controls">
-		                <textarea name="xztClass.option2" style="height: 500px" >
-							请点击这里添加公告内容......
+		                <textarea name="xztClass.option2" rows="1" cols="50" >
 						</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>选项C：</h4></label>
 		              <div class="controls">
-		                <textarea name="xztClass.option3" style="height: 500px" >
-							请点击这里添加公告内容......
+		                <textarea name="xztClass.option3" rows="1" cols="50" >
 						</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>选项D：</h4></label>
 		              <div class="controls">
-		                <textarea name="xztClass.option4" style="height: 500px" >
-							请点击这里添加公告内容......
+		                <textarea name="xztClass.option4" rows="1" cols="50" >
 						</textarea>
 		              </div>
 		            </div>
@@ -98,9 +94,6 @@
 		
 		<script>
 			CKEDITOR.inline( 'xztClass.title' );
-			CKEDITOR.inline( 'xztClass.option1' );
-			CKEDITOR.inline( 'xztClass.option2' );
-			CKEDITOR.inline( 'xztClass.option3' );
-			CKEDITOR.inline( 'xztClass.option4' );
+
 		</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>

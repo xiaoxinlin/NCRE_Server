@@ -65,9 +65,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</section><!-- end of secondary bar -->
 		
 		<aside id="sidebar" class="column">
-			<form class="quick_search">
+			<!--  <form class="quick_search">
 				<input type="text" value="" placeholder="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
-			</form>
+			</form>-->
 			<hr/>
 			<div class="accordion" id="b-anno-accordion">
 				<div class="accordion-group">
