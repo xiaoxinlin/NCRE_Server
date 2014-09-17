@@ -123,7 +123,7 @@
 				${tktType[i.type] }
 			</td>
 			<td rowspan="2" style="width:150px;">
-				<a name="delete-anno" class="btn" href="tkt/delete?id=${i.id }&subject-type=${subjectType}">删除</a>
+				<a name="delete-anno" class="btn" href="tkt/delete?id=${i.id }&subject-type=${subjectType}" onclick="return confirmDel();">删除</a>
 				<a name="update-anno" class="btn" href="tkt/index2update?id=${i.id }&subject-type=${subjectType}">编辑</a>
 			</td>
 		</tr>

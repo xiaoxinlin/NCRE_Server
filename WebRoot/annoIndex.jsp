@@ -36,7 +36,7 @@
 				</td>
 				<td>
 					<a name="delete-anno" class="btn"
-						href="announcement/delete?id=${i.id }">删除</a>
+						href="announcement/delete?id=${i.id }" onclick="return confirmDel();">删除</a>
 					<a name="update-anno" class="btn"
 						href="announcement/index2update?id=${i.id }">编辑</a>
 				</td>

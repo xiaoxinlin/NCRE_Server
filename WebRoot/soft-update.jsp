@@ -33,10 +33,11 @@
 	<div class="control-group">
 		<div class="controls">
 			<input type="hidden" name="fileClass.id" value="${file.id }" />
+			<input type="hidden" name="fileClass.type" value="2" />
 			<button type="submit" class="btn" name="soft-submit" id="soft-submit">
 				保存
 			</button>
-			<input type="reset" class="btn" name="soft-cancel" id="soft-cancel" value="取消"/>
+			<a href="file/anywhere2soft" class="btn" name="soft-cancel" id="soft-cancel">取消</a>
 		</div>
 	</div>
 

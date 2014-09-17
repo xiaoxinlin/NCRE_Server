@@ -36,7 +36,7 @@
 					${i.upload_date }
 				</td>
 				<td>
-					<a name="delete-soft" class="btn" href="file/delete?id=${i.id }">删除</a>
+					<a name="delete-soft" class="btn" href="file/delete?id=${i.id }" onclick="return confirmDel();">删除</a>
 					<a name="update-soft" class="btn" href="file/index2docUpdate?id=${i.id }">编辑</a>
 
 				</td>

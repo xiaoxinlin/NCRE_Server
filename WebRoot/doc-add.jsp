@@ -37,7 +37,7 @@
 			<button type="submit" class="btn" name="soft-submit" id="soft-submit">
 				保存
 			</button>
-			<a href="b-soft.jsp" class="btn" name="soft-cancel" id="soft-cancel">取消</a>
+			<a href="file/anywhere2doc" class="btn" name="soft-cancel" id="soft-cancel">取消</a>
 		</div>
 	</div>
 

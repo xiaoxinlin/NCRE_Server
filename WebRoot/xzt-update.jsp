@@ -2,70 +2,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
-<section id="main" class="column">
-<div class="spacer"></div>
-<article class="add-xzt-module">
-<form class="add-xzt-form" method="post" action="xzt/update">
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				选择题题目：
-			</h4>
-		</label>
-		<div class="controls add-xzt-cke">
-			<textarea name="xztClass.title" style="height: 500px">
-							${xzt.title }
+		<section id="main" class="column">
+			<div class="spacer"></div>
+			<article class="add-xzt-module">
+				<form class="add-xzt-form" method="post" action="xzt/update">
+		            <div class="control-group">
+		            <h5>选择题题目：</h5>
+		                <textarea name="xztClass.title"  rows="7" cols="100" class="context">
+		                ${xzt.title}
 						</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				选项A：
-			</h4>
-		</label>
-		<div class="controls">
-			<textarea name="xztClass.option1" rows="1" cols="50">${xzt.option1 }</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				选项B：
-			</h4>
-		</label>
-		<div class="controls">
-			<textarea name="xztClass.option2" rows="1" cols="50">${xzt.option2 }</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				选项C：
-			</h4>
-		</label>
-		<div class="controls">
-			<textarea name="xztClass.option3" rows="1" cols="50">${xzt.option3 }</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				选项D：
-			</h4>
-		</label>
-		<div class="controls">
-			<textarea name="xztClass.option4" rows="1" cols="50">${xzt.option4 }</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				答案：
-			</h4>
-		</label>
-		<div class="controls">
-			<select name="xztClass.answer">
+		            </div>
+		            <div class="control-group">
+		             
+						<b>选项A：</b><input name="xztClass.option1" type="text" style="width:670px;" value="${xzt.option1 }"/>
+		             
+		            </div>
+		            <div class="control-group">
+		              <b>选项B：</b><input name="xztClass.option2" type="text" style="width:670px;" value="${xzt.option2 }"/>
+		            </div>
+		            <div class="control-group">
+		              
+		              <b>选项C：</b><input name="xztClass.option3" type="text" style="width:670px;" value="${xzt.option3 }"/>
+		            </div>
+		            <div class="control-group">
+		              <b>选项D：</b><input name="xztClass.option4" type="text" style="width:670px;" value="${xzt.option4 }"/>
+		            </div>
+		            <div class="control-group">
+		              <div class="controls">
+		              <b>答案：</b>
+		              	<select name="xztClass.answer">
 				<option value="A" ${xzt.answer== "A"?"selected='selected'":"" }>
 					A
 				</option>
@@ -79,16 +44,9 @@
 					D
 				</option>
 			</select>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				类型：
-			</h4>
-		</label>
-		<div class="controls">
-			<select name="xztClass.subject_type" disabled="disabled">
+		              	&nbsp　　　 &nbsp
+		              	 <b>类型：</b>
+		                <select name="xztClass.subject_type" disabled="disabled">
 				<%--   22种类型	--%>
 				<option value="0" ${xzt.subject_type==0? "selected='selected'":"" }>
 					计算机基础及WPS Office应用
@@ -159,26 +117,20 @@
 					嵌入式系统开发工程师
 				</option>
 			</select>
-		</div>
-	</div>
-	<input class="hidden" value="${xzt.id }" name="xztClass.id" />
-	<input class="hidden" name="subject-type" value="${subjectType }" />
-	<button type="submit" class="btn" name="xzt-submit " id="xzt-submit">
-		保存
-	</button>
-	<button type="reset" class="btn" name="xzt-add-reset"
-		id="xzt-add-reset">
-		重填
-	</button>
-	<button class="btn" name="xzt-cancel" id="xzt-cancel">
-		取消
-	</button>
-</form>
-</article>
-</section>
+		              </div>
+		            </div>
+		           	<input class="hidden" value="${xzt.id }" name="xztClass.id" />
+		            <input class="hidden" name="subject-type" value="${subjectType }" />
+		            <button type="submit" class="btn" name="xzt-submit " id="xzt-submit">保存</button>
+		            <button type="reset" class="btn" name="xzt-add-reset" id="xzt-add-reset">重填</button>
+		            <a class="btn" name="xzt-cancel" id="xzt-cancel" href="xzt/anywhere2index">取消</a>
+		          </form>
+			</article>
+		</section>
+		
+		<script>
+			
 
-<script>
-	CKEDITOR.inline('xztClass.title');
-
-</script>
+		</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>
+

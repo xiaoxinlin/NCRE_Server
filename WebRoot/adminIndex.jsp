@@ -41,7 +41,7 @@
 					${i.reg_date }
 				</td>
 				<td>
-					<a name="delete-admin" class="btn" href="admin/delete?id=${i.id }">删除</a>
+					<a name="delete-admin" class="btn" href="admin/delete?id=${i.id }" onclick="return confirmDel();">删除</a>
 					<a name="update-admin" class="btn" href="admin/index2update?id=${i.id }">编辑</a>
 
 				</td>

@@ -24,7 +24,7 @@
 		              <div class="controls">
 		                <button type="submit" class="btn" name="question-submit" id="question-submit">保存</button>
 		                <button type="reset" class="btn" name="question-update-reset" id="question-update-reset">重填</button>
-		            	<a href="b-question.jsp"  class="btn" name="question-cancel" id="question-cancel">取消</a>
+		            	<a href="question/anywhere2index"  class="btn" name="question-cancel" id="question-cancel">取消</a>
 		              </div>
 		            </div>
 		            

@@ -7,9 +7,9 @@
 			<article class="add-admin-module">
 				<form class="add-admin-form form-horizontal" method="post" action="admin/add">
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>名称：</h4></label>
+		              <label class="control-label" for="" ><h4>名称：</h4></label>
 		              <div class="controls">
-		              	<input type="text" name="adminClass.name"/>
+		              	<input type="text" name="adminClass.name" />
 		              </div>
 		            </div>
 		            <div class="control-group">
@@ -23,7 +23,7 @@
 		              	<input type="hidden" name="authority" value="admin"/>
 		                <button type="submit" class="btn" name="admin-submit" id="admin-submit">保存</button>
 		                <button type="reset" class="btn" name="admin-add-reset" id="admin-add-reset">重填</button>
-		            	<a href="b-admin.jsp"  class="btn" name="admin-cancel" id="admin-cancel">取消</a>
+		            	<a href="admin/anywhere2index"  class="btn" name="admin-cancel" id="admin-cancel">取消</a>
 		              </div>
 		            </div>
 		            

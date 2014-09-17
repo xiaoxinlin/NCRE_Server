@@ -34,9 +34,12 @@ public class FileService extends CommonService{
 	 */
 	public static boolean save(FileClass fileClass,UploadFile uploadFile){
 		boolean flag = false;
-		
-		fileClass.set("uri", uploadFile.getFileName() )
-		.set("upload_date", new java.util.Date() );
+		 
+		if(uploadFile == null ){
+			return flag;
+		}
+		fileClass.set("uri", uploadFile.getFileName() );
+		fileClass.set("upload_date", new java.util.Date() );
 		
 		flag = fileClass.save();
 		return flag;
@@ -62,8 +65,14 @@ public class FileService extends CommonService{
 	public static boolean update(FileClass fileClass,UploadFile uploadFile){
 		boolean flag = false;
 		
-		FileService.delete( fileClass.get("id") );
-		flag = FileService.save(fileClass, uploadFile);
+		
+		if(uploadFile == null ){
+			flag = fileClass.update();
+		}else{
+			FileService.delete( fileClass.get("id") );
+			flag = FileService.save(fileClass, uploadFile);
+		}
+		
 		return flag;
 	}
 	

@@ -49,8 +49,14 @@ public class FileController extends BaseControllerImpl  {
 	public void delete() {
 
 		String id = getPara("id");
+		FileClass fileClass = FileClass.dao.findById(id);
 		FileService.delete(id);
-		redirect("/file/anywhere2soft");
+		
+		if( fileClass.getInt("type") == FileType.DOC ){
+			redirect("/file/anywhere2doc");
+		}else if(fileClass.getInt("type") == FileType.SOFTWARE){
+			redirect("/file/anywhere2soft");
+		}
 	}
 	/**
 	 * 获取文件第一页列表,每一页为14条记录
@@ -120,14 +126,16 @@ public class FileController extends BaseControllerImpl  {
 	public void update() {
 
 		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,600000000);
-		if(uploadFile == null){
-			//TODO:
-		}
+
 		FileClass fileClass = getModel(FileClass.class);
 		
 		FileService.update(fileClass,uploadFile);
 		
-		redirect("/file/anywhere2soft");
+		if( fileClass.getInt("type") == FileType.DOC ){
+			redirect("/file/anywhere2doc");
+		}else if(fileClass.getInt("type") == FileType.SOFTWARE){
+			redirect("/file/anywhere2soft");
+		}
 	}
 	
 	/**文件下载功能

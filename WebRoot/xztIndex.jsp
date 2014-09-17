@@ -120,7 +120,7 @@
 			${i.title }
 		</td>
 		<td rowspan="6" style="width:100px;">
-			<a name="delete-xzt" class="btn" href="xzt/delete?id=${i.id }&subject-type=${subjectType}">删除</a>
+			<a name="delete-xzt" class="btn" href="xzt/delete?id=${i.id }&subject-type=${subjectType}" onclick="return confirmDel();">删除</a>
 			<a name="update-xzt" class="btn" href="xzt/index2update?id=${i.id }&subject-type=${subjectType}">编辑</a>
 		</td>
 	</tr>

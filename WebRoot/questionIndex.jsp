@@ -30,7 +30,7 @@
 				</td>
 				
 				<td>
-					<a name="delete-admin" class="btn" href="question/delete?id=${i.id }">删除</a>
+					<a name="delete-admin" class="btn" href="question/delete?id=${i.id }" onclick="return confirmDel();">删除</a>
 					<a name="update-admin" class="btn"
 						href="question/index2update?id=${i.id }">编辑</a>
 

@@ -9,7 +9,7 @@
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>常见问题：</h4></label>
 		              <div class="controls">
-		              	<textarea rows="8" cols="50" name="questionClass.title" >${question.title }</textarea>
+		              	<textarea rows="5" cols="50" name="questionClass.title" >${question.title }</textarea>
 		              </div>
 		            </div>
 		            <div class="control-group">
@@ -23,7 +23,7 @@
 		              <div class="controls">
 		                <button type="submit" class="btn" name="question-submit" id="question-submit">保存</button>
 		                <button type="reset" class="btn" name="question-update-reset" id="question-update-reset">重填</button>
-		            	<a href="b-question.jsp"  class="btn" name="question-cancel" id="question-cancel">取消</a>
+		            	<a href="question/anywhere2index"  class="btn" name="question-cancel" id="question-cancel">取消</a>
 		              </div>
 		            </div>
 		            

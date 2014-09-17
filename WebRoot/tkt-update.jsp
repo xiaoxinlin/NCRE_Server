@@ -2,43 +2,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
-
-<section id="main" class="column">
-<div class="spacer"></div>
-<article class="add-tkt-module">
-<form class="add-tkt-form" method="post" action="tkt/update">
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				填空题题目：
-			</h4>
-		</label>
-		<div class="controls add-tkt-cke">
-			<textarea name="tktClass.title" style="height: 500px">
-							${tkt.title }
+		
+		<section id="main" class="column">
+			<div class="spacer"></div>
+			<article class="add-tkt-module">
+				<form class="add-tkt-form" method="post" action="tkt/update">
+		            <div class="control-group">
+		              <label class="control-label" for=""><h5>填空题题目：</h5></label>
+						<textarea name="tktClass.title"  rows="5" cols="100" class="context">
+						${tkt.title }
 						</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				答案：
-			</h4>
-		</label>
-		<div class="controls add-tkt-cke">
-			<textarea name="tktClass.answer" style="height: 500px">
-							${tkt.answer }
+		            </div>
+		            <div class="control-group">
+		              <label class="control-label" for=""><h5>答案：</h5></label>
+		              <textarea name="tktClass.answer"  rows="5" cols="100" class="context">
+		              ${tkt.answer }
 						</textarea>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				题型：
-			</h4>
-		</label>
-		<div class="controls">
-			<select name="tktClass.type">
+		            </div>
+		            <div class="control-group">
+		              <b>题型：</b>
+		               <select name="tktClass.type">
 				<option value="0" ${tkt.type==0? "selected='selected'":"" }>
 					填空题
 				</option>
@@ -46,16 +29,9 @@
 					大题
 				</option>
 			</select>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="">
-			<h4>
-				类型：
-			</h4>
-		</label>
-		<div class="controls">
-			<select name="tktClass.subject_type" disabled="disabled">
+		                	&nbsp　　　 &nbsp
+		                <b>类型：</b>
+		                <select name="tktClass.subject_type" disabled="disabled">
 				<%--   22种类型	--%>
 				<option value="0" ${tkt.subject_type==0? "selected='selected'":"" }>
 					计算机基础及WPS Office应用
@@ -126,27 +102,14 @@
 					嵌入式系统开发工程师
 				</option>
 			</select>
-		</div>
-	</div>
-	<input class="hidden" value="${tkt.id }" name="tktClass.id"/>
-	<input class="hidden" name="subject-type" value="${subjectType }"/>
-	<button type="submit" class="btn" name="tkt-submit " id="tkt-submit">
-		保存
-	</button>
-	<button type="reset" class="btn" name="tkt-add-reset"
-		id="tkt-add-reset">
-		重填
-	</button>
-	<button class="btn" name="tkt-cancel" id="tkt-cancel">
-		取消
-	</button>
-</form>
-</article>
-</section>
-
-<script>
-	CKEDITOR.inline('tktClass.title');
-	CKEDITOR.inline('tktClass.answer');
-</script>
-
+		            </div>
+		            	<input class="hidden" value="${tkt.id }" name="tktClass.id"/>
+		            <input class="hidden" name="subject-type" value="${subjectType }" />
+		            <button type="submit" class="btn" name="tkt-submit " id="tkt-submit">保存</button>
+		            <button type="reset" class="btn" name="tkt-add-reset" id="tkt-add-reset">重填</button>
+		            <a class="btn" name="tkt-cancel" id="tkt-cancel" href="tkt/anywhere2index">取消</a>
+		          </form>
+			</article>
+		</section>
+	
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>

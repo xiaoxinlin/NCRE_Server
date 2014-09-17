@@ -7,55 +7,36 @@
 			<article class="add-xzt-module">
 				<form class="add-xzt-form" method="post" action="xzt/add">
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>选择题题目：</h4></label>
-		              <div class="controls add-xzt-cke">
-		                <textarea name="xztClass.title" style="height: 500px" >
-							请点击这里添加内容......
+		            <h5>选择题题目：</h5>
+		                <textarea name="xztClass.title"  rows="7" cols="100" class="context">
 						</textarea>
-		              </div>
 		            </div>
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>选项A：</h4></label>
-		              <div class="controls">
-		                <textarea name="xztClass.option1" rows="1" cols="50" >
-						</textarea>
-		              </div>
+		             
+						<b>选项A：</b><input name="xztClass.option1" type="text" style="width:670px;"/>
+		             
 		            </div>
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>选项B：</h4></label>
-		              <div class="controls">
-		                <textarea name="xztClass.option2" rows="1" cols="50" >
-						</textarea>
-		              </div>
+		              <b>选项B：</b><input name="xztClass.option2" type="text" style="width:670px;"/>
 		            </div>
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>选项C：</h4></label>
-		              <div class="controls">
-		                <textarea name="xztClass.option3" rows="1" cols="50" >
-						</textarea>
-		              </div>
+		              
+		              <b>选项C：</b><input name="xztClass.option3" type="text" style="width:670px;"/>
 		            </div>
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>选项D：</h4></label>
-		              <div class="controls">
-		                <textarea name="xztClass.option4" rows="1" cols="50" >
-						</textarea>
-		              </div>
+		              <b>选项D：</b><input name="xztClass.option4" type="text" style="width:670px;"/>
 		            </div>
 		            <div class="control-group">
-		              <label class="control-label" for=""><h4>答案：</h4></label>
 		              <div class="controls">
+		              <b>答案：</b>
 		              	<select name="xztClass.answer">
 		              		<option value="A">A</option>
 		              		<option value="B">B</option>
 		              		<option value="C">C</option>
 		              		<option value="D">D</option>
 		              	</select>
-		              </div>
-		            </div>
-		            <div class="control-group">
-		              <label class="control-label" for=""><h4>类型：</h4></label>
-		              <div class="controls">
+		              	&nbsp　　　 &nbsp
+		              	 <b>类型：</b>
 		                <select name="xztClass.subject_type">					<%--   22种类型	--%>
 		                	<option value="0">计算机基础及WPS Office应用</option>
 		                	<option value="1">计算机基础及MS Office应用</option>
@@ -84,16 +65,17 @@
 		                </select>
 		              </div>
 		            </div>
+		           
 		            <input class="hidden" name="subject-type" value="${subjectType }" />
 		            <button type="submit" class="btn" name="xzt-submit " id="xzt-submit">保存</button>
 		            <button type="reset" class="btn" name="xzt-add-reset" id="xzt-add-reset">重填</button>
-		            <button class="btn" name="xzt-cancel" id="xzt-cancel">取消</button>
+		            <a class="btn" name="xzt-cancel" id="xzt-cancel" href="xzt/anywhere2index">取消</a>
 		          </form>
 			</article>
 		</section>
 		
 		<script>
-			CKEDITOR.inline( 'xztClass.title' );
+			
 
 		</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>
