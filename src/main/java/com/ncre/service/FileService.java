@@ -40,7 +40,6 @@ public class FileService extends CommonService{
 		}
 		fileClass.set("uri", uploadFile.getFileName() );
 		fileClass.set("upload_date", new java.util.Date() );
-		
 		flag = fileClass.save();
 		return flag;
 	}
@@ -80,7 +79,19 @@ public class FileService extends CommonService{
 		return FileClass.dao.findById(id);
 	}
 	
-	
+	/**
+	 * 增加一个对象
+	 * @param uploadFile
+	 * @return
+	 */
+	public static FileClass add(UploadFile uploadFile){
+		if(uploadFile == null) return null;
+		FileClass fileClass = new FileClass();
+		fileClass.set("title", uploadFile.getOriginalFileName());
+		fileClass.set("type", FileType.ENCLOSURE);
+		FileService.save(fileClass, uploadFile);
+		return fileClass;
+	}
 	
 	
 }

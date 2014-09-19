@@ -114,7 +114,6 @@ public final class AnnouncementService extends CommonService{
 			
 		}else if( announcementClass.get("uri") != uploadFile.getOriginalFileName() ){
 			
-			System.out.println("uri is different!!");
 			AnnouncementService.deleteAnnouncement(updatedAnnouncementClass.get("id"));
 			AnnouncementService.addAnnouncement(updatedAnnouncementClass, uploadFile);
 			

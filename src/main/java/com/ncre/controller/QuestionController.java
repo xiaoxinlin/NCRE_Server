@@ -8,19 +8,24 @@ import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.upload.UploadFile;
 import com.ncre.interceptor.AccessControlAllowOrigin;
 import com.ncre.model.QuestionClass;
 import com.ncre.model.TktClass;
 import com.ncre.service.AnnouncementService;
 import com.ncre.service.QuestionService;
+import com.ncre.utils.EnvVar;
 
 public class QuestionController extends BaseControllerImpl  {
 
 	public void add() {
 
+		// 保存文件到WebRoot/upload中，同时把文件信息封装到uploadFile对象中
+		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,50*1024*1024);
+		
 		QuestionClass questionClass = getModel(QuestionClass.class);
 
-		questionClass.set("is_legal", false).save();
+		QuestionService.save(questionClass,uploadFile);
 
 		redirect("/question/anywhere2index");
 	}
@@ -65,9 +70,12 @@ public class QuestionController extends BaseControllerImpl  {
 	}
 
 	public void update() {
+		
+		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER,50*1024*1024);
+		
 		QuestionClass questionClass = getModel(QuestionClass.class);
 
-		QuestionService.update(questionClass);
+		QuestionService.update(questionClass,uploadFile);
 
 		redirect("/question/anywhere2index");
 	}

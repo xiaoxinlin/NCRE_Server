@@ -5,7 +5,7 @@
 		<section id="main" class="column">
 			<div class="spacer"></div>
 			<article class="add-question-module">
-				<form class="add-question-form form-horizontal" method="post" action="question/add">
+				<form class="add-question-form form-horizontal" method="post" action="question/add" enctype="multipart/form-data">
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>常见问题：</h4></label>
 		              <div class="controls">
@@ -15,11 +15,18 @@
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>回答：</h4></label>
 		              <div class="controls">
-		              	<textarea rows="8" cols="50" name="questionClass.answer">
-		              	
+		              	<textarea rows="5" cols="50" name="questionClass.answer" class="context">
 		              	</textarea>
 		              </div>
+		              
 		            </div>
+		            <div class="control-group">
+		              <label class="control-label" for=""><h4>附件：</h4></label>
+		              <div class="controls">
+		               <input type="file" name="file"/>
+		              </div>
+		            </div>
+		            
 		            <div class="control-group">
 		              <div class="controls">
 		                <button type="submit" class="btn" name="question-submit" id="question-submit">保存</button>

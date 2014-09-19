@@ -8,13 +8,13 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th style="width:150px;">
+			<th >
 				常见问题
 			</th>
-			<th>
-				回答
+			<th style="width:250px;">
+				附件
 			</th>
-			<th style="width:150px;">
+			<th style="width:200px;">
 				操作
 			</th>
 		</tr>
@@ -26,7 +26,7 @@
 					${i.title }
 				</td>
 				<td>
-					${i.answer }
+					<a href="file/download?id=${i.file_id }">${i.uri }</a>
 				</td>
 				
 				<td>
