@@ -177,4 +177,15 @@ public class AnnouncementController extends BaseControllerImpl {
 		
 		renderJsp("/anno-update.jsp");
 	}
+	
+	public void index2detail(){
+		
+		String id = getPara("id");
+		
+		AnnouncementClass announcementClass = AnnouncementService.find(id);
+		
+		setAttr("anno", announcementClass);
+		
+		renderJsp("/anno-detail.jsp");
+	}
 }

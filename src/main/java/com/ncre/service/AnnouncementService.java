@@ -121,4 +121,8 @@ public final class AnnouncementService extends CommonService{
 		
 		announcementClass.update();
 	}
+	
+	public static AnnouncementClass find(Object id){
+		return AnnouncementClass.dao.findById(id);
+	}
 }

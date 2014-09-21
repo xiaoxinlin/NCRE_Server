@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 		<section id="main" class="column">
+		<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">修改常见问题</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 			<div class="spacer"></div>
 			<article class="add-question-module">
 				<form class="add-question-form form-horizontal" method="post" action="question/update" enctype="multipart/form-data">

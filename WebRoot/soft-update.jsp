@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 <section id="main" class="column">
+<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">修改软件</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 <div class="spacer"></div>
 <article class="add-soft-module">
 <form class="add-soft-form" method="post" action="file/update" enctype="multipart/form-data">
@@ -14,7 +21,19 @@
 		</label>
 		<div class="controls">
 			<input type="text" 
-				placeholder="" name="fileClass.title" value="${file.title }">
+				placeholder="" name="fileClass.title" value="${file.title }" style="width:450px;">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="">
+			<h4>
+				说明：
+			</h4>
+		</label>
+		<div class="controls">
+			<textarea rows="5" cols="80" class="context" name="fileClass.context">
+			${file.context }
+			</textarea>
 		</div>
 	</div>
 	<div class="control-group">

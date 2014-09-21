@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>	
 		<section id="main" class="column">
+		<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">添加公告</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 			<div class="spacer"></div>
 			
 			<article class="add-anno-module">

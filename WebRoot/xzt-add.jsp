@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 		<section id="main" class="column">
+		<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">添加选择题</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 			<div class="spacer"></div>
 			<article class="add-xzt-module">
 				<form class="add-xzt-form" method="post" action="xzt/add">

@@ -89,13 +89,18 @@ section#secondary_bar .user {
 	box-shadow: 5px 5px 5px #D6D5D5;
 }
 
+.user{
+	height: 38px;
+	width: 99.8%;
+	background: #F1F1F4 url(../images/backImg/secondary_bar.png) repeat-x;
+	border-left:2px solid #e0e0e3;
+}
 .user p {
 	margin: 0px;
 	padding: 0;
 	color: #666666;
 	font-weight: bold;
 	display: block;
-	float: left;
 	width: 85%;
 	height: 35px;
 	line-height: 35px;
@@ -103,7 +108,9 @@ section#secondary_bar .user {
 	text-shadow: 0 1px 0 #fff;
 	background: url(../images/backImg/icn_user.png) no-repeat center left;
 	margin-left: 6%;
+	
 }
+
 
 
 /* 面包导航 */
@@ -170,7 +177,6 @@ aside#sidebar {
 	background: #E0E0E3 url(../images/backImg/sidebar.png) repeat;
 	float: left;
 	min-height: 585px;
-	margin-top: -4px;
 	box-shadow: 5px 5px 5px #D6D5D5;
 }
 
@@ -229,22 +235,24 @@ aside#sidebar {
 	width: 90%;
 }
 #sidebar .accordion .accordion-group {
+	height: 35px;
 	border: 1px solid #EBEBEB;
+	padding-top: 5px;
 }
 #sidebar .accordion .accordion-group a {
-	font-size:15px;
+	font-size:16px;
 	font-weight:bold;
 }
 #sidebar .accordion .accordion-group a:hover {
 	text-decoration: none;
 }
 
-#sidebar p {
+/*#sidebar p {
 	color: #666666;
 	padding-bottom:8%;
 	text-shadow: 0 1px 0 #fff;
 	margin: 10px 0 0 0;
-}
+}*/
 
 #sidebar a {
 	color: #666666;
@@ -266,7 +274,6 @@ section#main {
 	min-height: 500px;
 	background: url(../images/sidebar_shadow.png) repeat-y left top;
 	float: left;
-	margin-top: -2px;
 }
 
 .module {

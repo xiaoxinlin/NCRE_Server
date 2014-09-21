@@ -3,9 +3,17 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 <section id="main" class="column">
+<div class="user">
+	<article class="breadcrumbs">
+	<a class="current">修改文档</a>
+	<div class="breadcrumb_divider"></div>
+	<%--<a class="current">Dashboard</a>--%>
+	</article>
+</div>
 <div class="spacer"></div>
 <article class="add-soft-module">
-<form class="add-soft-form" method="post" action="file/update" enctype="multipart/form-data">
+<form class="add-soft-form" method="post" action="file/update"
+	enctype="multipart/form-data">
 	<div class="control-group">
 		<label class="control-label" for="">
 			<h4>
@@ -13,8 +21,20 @@
 			</h4>
 		</label>
 		<div class="controls">
-			<input type="text" 
-				placeholder="" name="fileClass.title" value="${file.title }">
+			<input type="text" placeholder="" name="fileClass.title"
+				value="${file.title }" style="width:450px;">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="">
+			<h4>
+				说明：
+			</h4>
+		</label>
+		<div class="controls">
+			<textarea rows="5" cols="80" class="context" name="fileClass.context">
+			${file.context }
+			</textarea>
 		</div>
 	</div>
 	<div class="control-group">
@@ -26,7 +46,9 @@
 		<div class="controls">
 			<input type="file" name="soft-appendix" />
 			<div class="files" id="files">
-				<p>原附件&nbsp：&nbsp ${file.uri }</p>
+				<p>
+					原附件&nbsp：&nbsp ${file.uri }
+				</p>
 			</div>
 		</div>
 	</div>
@@ -37,7 +59,8 @@
 			<button type="submit" class="btn" name="soft-submit" id="soft-submit">
 				保存
 			</button>
-			<a href="file/anywhere2doc" class="btn" name="soft-cancel" id="soft-cancel">取消</a>
+			<a href="file/anywhere2doc" class="btn" name="soft-cancel"
+				id="soft-cancel">取消</a>
 		</div>
 	</div>
 

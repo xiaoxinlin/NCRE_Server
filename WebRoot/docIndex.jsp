@@ -4,6 +4,13 @@
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 
 <section id="main" class="column">
+<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">文档列表</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 <div class="spacer"></div>
 <article class="module">
 <table class="table table-hover">
@@ -27,7 +34,7 @@
 		<c:forEach items="${list.list}" var="i">
 			<tr>
 				<td>
-					${i.title }
+					<a href="file/index2detail?id=${i.id }">${i.title }</a>
 				</td>
 				<td>
 					<a href="file/download?id=${i.id }">${i.uri }</a>

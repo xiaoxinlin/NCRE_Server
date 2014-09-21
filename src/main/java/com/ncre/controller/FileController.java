@@ -107,6 +107,8 @@ public class FileController extends BaseControllerImpl  {
 	 * @param id
 	 * @return
 	 */
+	@ClearInterceptor(ClearLayer.ALL)
+	@Before(AccessControlAllowOrigin.class)
 	public void show() {
 
 		String id = getPara("id");
@@ -223,5 +225,15 @@ public class FileController extends BaseControllerImpl  {
 		setAttr("file", fileClass);
 		
 		renderJsp("/doc-update.jsp");
+	}
+	
+	public void index2detail(){
+		String id = getPara("id");
+		
+		FileClass fileClass = FileService.find(id);
+		
+		setAttr("file", fileClass);
+		
+		renderJsp("/file-detail.jsp");
 	}
 }

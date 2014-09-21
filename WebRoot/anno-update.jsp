@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 <section id="main" class="column">
+<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">修改公告</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 			<div class="spacer"></div>
 			<article class="update-anno-module">
 				<form class="update-anno-form" method="post" action="announcement/update"  enctype="multipart/form-data">

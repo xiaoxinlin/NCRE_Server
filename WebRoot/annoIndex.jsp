@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 <section id="main" class="column">
+<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">公告列表</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 <div class="spacer"></div>
 <article class="module">
 <table class="table table-hover">
@@ -26,7 +33,7 @@
 		<c:forEach items="${annoList.list}" var="i">
 			<tr>
 				<td>
-					<a href="announcement-details.jsp" target="_blank">${i.title }</a>
+					<a href="announcement/index2detail?id=${i.id }">${i.title }</a>
 				</td>
 				<td>
 					${i.create_date }

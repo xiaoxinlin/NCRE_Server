@@ -3,6 +3,13 @@
 
 <jsp:include page="navBar_begin.jsp" flush="true"></jsp:include>
 <section id="main" class="column">
+<div class="user">
+			<article class="breadcrumbs">
+			<a class="current">修改管理员</a>
+			<div class="breadcrumb_divider"></div>
+			<%--<a class="current">Dashboard</a>--%>
+			</article>
+		</div>
 			<div class="spacer"></div>
 			<article class="update-admin-module">
 				<form class="update-admin-form form-horizontal" method="post" action="admin/update">

@@ -89,8 +89,8 @@
 		</header>
 		<!-- end of header bar -->
 
-		<section id="secondary_bar">
-		<div class="user">
+		<!--<section id="secondary_bar">
+		 <div class="user">
 			<p>
 				${ session.admin.name }
 			</p>
@@ -101,11 +101,16 @@
 			<div class="breadcrumb_divider"></div>
 			<%--<a class="current">Dashboard</a>--%>
 			</article>
-		</div>
-		</section>
+		</div> 
+		</section>-->
 		<!-- end of secondary bar -->
 
 		<aside id="sidebar" class="column">
+		<div class="user">
+			<p>
+				${ session.admin.name }
+			</p>
+		</div>
 		<!--  <form class="quick_search">
 				<input type="text" value="" placeholder="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 			</form>-->
@@ -159,9 +164,9 @@
 
 		<footer>
 		<hr />
-		<p>
+		<h3 style="color:#666666">
 			<strong>Copyright &copy; 2014 中山大学南方学院电子通信与软件工程系</strong>
-		</p>
+		</h3>
 		</footer>
 		</aside>
 		<!-- end of sidebar -->
