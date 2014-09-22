@@ -12,7 +12,7 @@
 		</div>
 			<div class="spacer"></div>
 			<article class="add-question-module">
-				<form class="add-question-form form-horizontal" method="post" action="question/update" enctype="multipart/form-data">
+				<form class="add-question-form form-horizontal uploadForm" method="post" action="question/update" enctype="multipart/form-data">
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>常见问题：</h4></label>
 		              <div class="controls">
@@ -31,7 +31,12 @@
 		               <input type="file" name="file"/>
 		               <p>原附件：${question.uri }</p>
 		              </div>
-		              
+		              <p>
+					<div class="progress" style="width:70%;margin-left:17%">
+						<div class="bar"></div>
+						 <div class="percent">0%</div >
+					</div>
+					</p>
 		              
 		            </div>
 		            <input class="hidden" name="questionClass.id" value="${question.id }"/>

@@ -12,7 +12,7 @@
 </div>
 <div class="spacer"></div>
 <article class="add-soft-module">
-<form class="add-soft-form" method="post" action="file/update"
+<form class="add-soft-form uploadForm" method="post" action="file/update"
 	enctype="multipart/form-data">
 	<div class="control-group">
 		<label class="control-label" for="">
@@ -50,6 +50,12 @@
 					原附件&nbsp：&nbsp ${file.uri }
 				</p>
 			</div>
+			<p>
+			<div class="progress" style="width:70%;">
+				<div class="bar"></div>
+				 <div class="percent">0%</div >
+			</div>
+			</p>
 		</div>
 	</div>
 	<div class="control-group">

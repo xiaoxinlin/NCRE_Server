@@ -12,7 +12,7 @@
 		</div>
 			<div class="spacer"></div>
 			<article class="update-anno-module">
-				<form class="update-anno-form" method="post" action="announcement/update"  enctype="multipart/form-data">
+				<form class="update-anno-form uploadForm" method="post" action="announcement/update"  enctype="multipart/form-data">
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>公告标题：</h4></label>
 		              <div class="controls">
@@ -34,6 +34,12 @@
 		              	</div>
 		              </div>
 		            </div>
+		            <p>
+					<div class="progress" style="width:70%;">
+						<div class="bar"></div>
+						 <div class="percent">0%</div >
+					</div>
+					</p>
 		            <input value="${updatedAnno.id }" class="hidden" name="announcementClass.id"/>
 		            <button type="submit" class="btn" name="anno-update">保存</button>
 		            <button type="reset" class="btn" name="anno-update-reset" id="anno-update-reset">重填</button>

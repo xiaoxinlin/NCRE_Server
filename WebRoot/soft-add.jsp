@@ -12,7 +12,7 @@
 		</div>
 <div class="spacer"></div>
 <article class="add-soft-module">
-<form class="add-soft-form" method="post" action="file/add" enctype="multipart/form-data">
+<form class="add-soft-form uploadForm" method="post" action="file/add" enctype="multipart/form-data">
 	<div class="control-group">
 		<label class="control-label" for="">
 			<h4>
@@ -46,6 +46,12 @@
 			<div class="files" id="files">
 
 			</div>
+			<p>
+			<div class="progress" style="width:70%;">
+				<div class="bar"></div>
+				 <div class="percent">0%</div >
+			</div>
+			</p>
 		</div>
 	</div>
 	<input class="hidden" name="fileClass.type" value="2"/>

@@ -27,7 +27,7 @@ public class QuestionController extends BaseControllerImpl  {
 
 		QuestionService.save(questionClass,uploadFile);
 
-		redirect("/question/anywhere2index");
+		renderText("添加常见问题成功！");
 	}
 
 	public void delete() {
@@ -35,7 +35,7 @@ public class QuestionController extends BaseControllerImpl  {
 
 		QuestionService.delete(id);
 
-		redirect("/question/anywhere2index");
+		renderText("修改常见问题成功！");
 	}
 
 	/**

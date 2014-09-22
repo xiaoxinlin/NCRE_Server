@@ -12,7 +12,7 @@
 		</div>
 			<div class="spacer"></div>
 			<article class="add-question-module">
-				<form class="add-question-form form-horizontal" method="post" action="question/add" enctype="multipart/form-data">
+				<form class="add-question-form form-horizontal uploadForm" method="post" action="question/add" enctype="multipart/form-data">
 		            <div class="control-group">
 		              <label class="control-label" for=""><h4>常见问题：</h4></label>
 		              <div class="controls">
@@ -32,6 +32,12 @@
 		              <div class="controls">
 		               <input type="file" name="file"/>
 		              </div>
+		              <p>
+						<div class="progress" style="width:70%;">
+							<div class="bar"></div>
+							 <div class="percent">0%</div >
+						</div>
+						</p>
 		            </div>
 		            
 		            <div class="control-group">

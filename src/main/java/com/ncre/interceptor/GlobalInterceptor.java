@@ -12,7 +12,10 @@ public class GlobalInterceptor implements Interceptor {
 		}else{
 			if( "/admin".equals( ai.getControllerKey() ) ){
 				AdminClass adminClass = ai.getController().getSessionAttr("admin");
-				if( 1 != adminClass.getInt("authority") ){
+				
+				if("sysConfig".equals(ai.getMethodName()) || "index2config".equals(ai.getMethodName()) || "importTest".equals(ai.getMethodName())){
+					ai.invoke();
+				}else if( 1 != adminClass.getInt("authority") ){
 					ai.getController().redirect("/announcement/anywhere2index");
 					
 				}else{

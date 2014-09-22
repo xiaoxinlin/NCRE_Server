@@ -32,10 +32,10 @@ public class FileController extends BaseControllerImpl  {
 		FileService.save(fileClass, uploadFile);
 		if(fileClass.getInt("type") == FileType.DOC){
 			
-			redirect("/file/anywhere2doc");
+			renderText("添加文档成功！");
 		}else if(fileClass.getInt("type") == FileType.SOFTWARE){
 			
-			redirect("/file/anywhere2soft");
+			renderText("添加软件成功！");
 		}
 	}
 
@@ -134,9 +134,9 @@ public class FileController extends BaseControllerImpl  {
 		FileService.update(fileClass,uploadFile);
 		
 		if( fileClass.getInt("type") == FileType.DOC ){
-			redirect("/file/anywhere2doc");
+			renderText("修改文档成功！");
 		}else if(fileClass.getInt("type") == FileType.SOFTWARE){
-			redirect("/file/anywhere2soft");
+			renderText("修改软件成功！");
 		}
 	}
 	

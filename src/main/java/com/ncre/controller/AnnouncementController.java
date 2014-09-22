@@ -35,7 +35,7 @@ public class AnnouncementController extends BaseControllerImpl {
 		// 利用模型驱动给对象赋值
 		AnnouncementClass announcementClass = getModel(AnnouncementClass.class);
 		AnnouncementService.addAnnouncement(announcementClass, uploadFile);
-		redirect("/announcement/anywhere2index");
+		renderText("添加公告成功！！");
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class AnnouncementController extends BaseControllerImpl {
 		// 利用模型驱动给对象赋值
 		AnnouncementClass updatedAnnouncementClass = getModel(AnnouncementClass.class);
 		AnnouncementService.updateAnnouncement(updatedAnnouncementClass, uploadFile);
-		redirect("/announcement/anywhere2index");
+		renderText("修改公告成功！");
 	}
 
 	/**

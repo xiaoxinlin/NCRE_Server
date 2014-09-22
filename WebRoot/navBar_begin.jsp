@@ -51,13 +51,42 @@
 		<script type="text/javascript" src="controls/wysiwyg.image.js"></script>
 		<script type="text/javascript" src="controls/wysiwyg.link.js"></script>
 		<script type="text/javascript" src="controls/wysiwyg.table.js"></script>
+		<script src="js/jquery.form.js"></script>
 
 		<script type="text/javascript">
 	$(function() {
-		$(document).ready(function() {
-			$('.context').wysiwyg();
-		});
+		$('.context').wysiwyg();
 		$('.column').equalHeight();
+		var bar = $('.bar');
+		var percent = $('.percent');
+		   
+		$('.uploadForm').ajaxForm({
+		    beforeSend: function() {
+		        var percentVal = '0%';
+		        bar.width(percentVal)
+		        percent.html(percentVal);
+		    },
+		    uploadProgress: function(event, position, total, percentComplete) {
+		        var percentVal = percentComplete + '%';
+		        bar.width(percentVal)
+		        percent.html(percentVal);
+				//console.log(percentVal, position, total);
+		    },
+		    success: function() {
+		        var percentVal = '100%';
+		        bar.width(percentVal)
+		        percent.html(percentVal);
+		   		
+		    },
+		    complete: function(xhr){
+		        alert(xhr.responseText);
+		        var percentVal = '0%';
+		        bar.width(percentVal)
+		        percent.html(percentVal);
+		    }
+		});
+
+				
 	});
 	function confirmDel(){
 			var r = confirm("确定删除该条记录吗？");
@@ -83,7 +112,7 @@
 		</h2>
 		<div class="btn_view_site">
 			<center>
-			<a class="btn btn-inverse ${session.admin.authority==2?'hidden':'' }" href="admin/index2config">系统设置</a>
+			<a class="btn btn-inverse " href="admin/index2config">系统设置</a>
 			<a class="btn btn-inverse" href="admin/index2chgpas">修改密码</a>
 			<a class="btn btn-inverse" href="admin/logout">退出</a>
 			</center>
