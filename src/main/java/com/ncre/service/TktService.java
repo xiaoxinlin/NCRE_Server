@@ -3,10 +3,12 @@ package com.ncre.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfinal.core.JFinal;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.ncre.model.TktClass;
+import com.ncre.utils.ExamConfig;
 
 public class TktService extends CommonService{
 
@@ -152,29 +154,32 @@ public class TktService extends CommonService{
 		return index;
 	}
 	
-	//得到一个填空题对象
-	public static TktClass getSingleLTkt(int type){
-		int size = 1;
-		String index = getLtktRandom(type, size);
+	//得到每日一练填空题
+	public static List<TktClass> getTestLTktList(int type){
+		
+		ExamConfig examConfig = (ExamConfig)JFinal.me().getServletContext().getAttribute("examConfig");
+		String index = getLtktRandom(type, examConfig.getTktNumsOfTEST());
 		
 		String sql = "select * from `tkt` where id in (" + index + ")";
 		
-		return TktClass.dao.findFirst(sql);
+		return TktClass.dao.find(sql);
 	}
-	//得到一个大题
-	public static TktClass getSingleBTkt(int type){
-		int size = 1;
-		String index = getBtktRandom(type, size);
+	//得到在线测试大题
+	public static List<TktClass> getExamDtList(int type){
+		
+		ExamConfig examConfig = (ExamConfig)JFinal.me().getServletContext().getAttribute("examConfig");
+		String index = getBtktRandom(type, examConfig.getDtNumsOfEXAM());
 		
 		String sql = "select * from `tkt` where id in (" + index + ")";
 		
-		return TktClass.dao.findFirst(sql);
+		return TktClass.dao.find(sql);
 	}
 	
-	//得到2个填空题对象
-	public static List<TktClass> getLTktList(int type){
-		int size = 2;
-		String index = getLtktRandom(type, size);
+	//得到在线测试填空题
+	public static List<TktClass> getExamLTktList(int type){
+		
+		ExamConfig examConfig = (ExamConfig)JFinal.me().getServletContext().getAttribute("examConfig");
+		String index = getLtktRandom(type,examConfig.getTktNumsOfEXAM());
 		
 		String sql = "select * from `tkt` where id in (" + index + ")";
 		

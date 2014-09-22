@@ -61,7 +61,7 @@ header#header h1.site_title a {
 
 header#header h2.section_title {
 	text-indent: 4.5%;
-	width: 65%;
+	width: 58%;
 	background: url(../images/backImg/header_shadow.png) no-repeat left top;
 }
 .btn_view_site a {
@@ -328,4 +328,32 @@ section#main {
 }
 .update-anno-module .update-anno-cke {
 	border:1px solid #CFCFCF;
+}
+
+/*系统设置*/
+.config-p {
+	font-size:16px;
+	color:#666666;
+	margin:5% 7%;
+	width:80%;
+}
+.config-p div{
+	margin-top:20px;
+}
+
+.config-p p{
+	font-size:16px;
+	font-weight:bold;
+	margin-left:20px;
+	
+}
+.config-p small{
+	font-size:12px;
+	margin-left:10px;
+	color:fuchsia;
+	
+}
+
+.config-p .btn{
+	margin-left:10px;
 }

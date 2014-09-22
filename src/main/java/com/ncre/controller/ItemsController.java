@@ -54,11 +54,11 @@ public class ItemsController extends BaseControllerImpl{
 	//获取每日一练的题目
 	public void testList(){
 		int subjectType = CommonService.StringNum2int(getPara("subject-type"));
-		XztClass xzt = XztService.getSingleXzt(subjectType);
-		TktClass tkt = TktService.getSingleLTkt(subjectType);
+		List<XztClass> xztList = XztService.getXztsOfTest(subjectType);
+		List<TktClass> tktList = TktService.getTestLTktList(subjectType);
 		List list = new ArrayList();
-		list.add(xzt);
-		list.add(tkt);
+		list.add(xztList);
+		list.add(tktList);
 		renderJson(list);
 	}
 	
@@ -67,30 +67,31 @@ public class ItemsController extends BaseControllerImpl{
 	@CacheName("itemsIndex")
 	public void examList(){
 		int subjectType = CommonService.StringNum2int(getPara("subject-type"));
-		List<XztClass> xztList = XztService.getXztList(subjectType);
-		List<TktClass> tktList = TktService.getLTktList(subjectType);
-		TktClass bTkt = TktService.getSingleBTkt(subjectType);
+		List<XztClass> xztList = XztService.getXztsOfExam(subjectType);
+		List<TktClass> tktList = TktService.getExamLTktList(subjectType);
+		List<TktClass> btList = TktService.getExamDtList(subjectType);
 		
 		List list = new ArrayList();
 		list.add(xztList);
 		list.add(tktList);
-		list.add(bTkt);
+		list.add(btList);
 		
 		renderJson(list);
 	}
 	
 	public void RefreshExamList(){
 		int subjectType = CommonService.StringNum2int(getPara("subject-type"));
-		List<XztClass> xztList = XztService.getXztList(subjectType);
-		List<TktClass> tktList = TktService.getLTktList(subjectType);
-		TktClass bTkt = TktService.getSingleBTkt(subjectType);
+		List<XztClass> xztList = XztService.getXztsOfExam(subjectType);
+		List<TktClass> tktList = TktService.getExamLTktList(subjectType);
+		List<TktClass> btList = TktService.getExamDtList(subjectType);
 		
 		List list = new ArrayList();
 		list.add(xztList);
 		list.add(tktList);
-		list.add(bTkt);
+		list.add(btList);
 		
 		renderJson(list);
 	}
 	
+
 }

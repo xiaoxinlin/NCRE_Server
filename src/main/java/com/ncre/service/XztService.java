@@ -3,10 +3,12 @@ package com.ncre.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfinal.core.JFinal;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.ncre.model.XztClass;
+import com.ncre.utils.ExamConfig;
 
 
 public class XztService extends CommonService{
@@ -39,17 +41,18 @@ public class XztService extends CommonService{
 		return list;
 	}
 	
-	//返回一个选择题对象
-	public static XztClass getSingleXzt(int subjectType){
-		String index = getSingleRandom(subjectType,1);
+	//返回每日一练选择题
+	public static List<XztClass> getXztsOfTest(int subjectType){
+		ExamConfig examConfig = (ExamConfig) JFinal.me().getServletContext().getAttribute("examConfig");
+		String index = getSingleRandom(subjectType,examConfig.getXztNumsOfTEST());
 		String sql = "select * from `xzt` where id in ("+index+")";
-		XztClass xztClass = XztClass.dao.findFirst(sql);
-		return xztClass;
+		return XztClass.dao.find(sql);
 		
 	}
-	//返回3个选择题对象
-	public static List<XztClass> getXztList(int subjectType){
-		String index = getSingleRandom(subjectType,3);
+	//返回在线测试选择题对象
+	public static List<XztClass> getXztsOfExam(int subjectType){
+		ExamConfig examConfig = (ExamConfig) JFinal.me().getServletContext().getAttribute("examConfig");
+		String index = getSingleRandom(subjectType,examConfig.getXztNumsOfEXAM());
 		String sql = "select * from `xzt` where id in ("+index+")";
 		List<XztClass> xztClass = XztClass.dao.find(sql);
 		return xztClass;

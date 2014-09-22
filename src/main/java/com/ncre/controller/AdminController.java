@@ -1,15 +1,23 @@
 package com.ncre.controller;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Enumeration;
+
 import com.jfinal.aop.Before;
 import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.aop.ClearLayer;
+import com.jfinal.core.JFinal;
+import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.upload.UploadFile;
 import com.ncre.model.AdminClass;
 import com.ncre.service.AdminService;
+import com.ncre.utils.EnvVar;
+import com.ncre.utils.ExamConfig;
 import com.ncre.utils.MD5Utils;
-import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 
 public class AdminController extends BaseControllerImpl {
 
@@ -141,6 +149,56 @@ public class AdminController extends BaseControllerImpl {
 		redirect("/admin/logout");
 		
 	}
+	/**
+	 * 处理试题设置
+	 */
+	public void sysConfig(){
+		Enumeration<String> examConfigNames = getParaNames();
+		//这里使用反射机制给对象赋值
+		ExamConfig examConfig = (ExamConfig) JFinal.me().getServletContext().getAttribute("examConfig");
+		Class clazz = examConfig.getClass();
+		
+		while(examConfigNames.hasMoreElements()){
+			String temp = examConfigNames.nextElement();
+			int value = getParaToInt(temp);
+			temp = "set"+temp.substring(0, 1).toUpperCase()+temp.substring(1);
+			Method m = null; 
+			try {
+				m = clazz.getDeclaredMethod(temp, int.class);
+				m.invoke(examConfig, value);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		redirect("/admin/index2config");
+	}
+	
+	/**
+	 * 批量导入试题
+	 */
+	public void importTest(){
+		
+		UploadFile uploadFile = getFile(EnvVar.SAVEFOLDER);
+		int type = getParaToInt("type");
+		String filePath = EnvVar.getFileAbsPath( uploadFile.getFileName() ).replace("\\", "/");
+		String table = "";
+		String columns = "";
+		if(type == 2){
+			//这是选择题
+			table = "`xzt`";
+			columns= "(`title`,`option1`,`option2`,`option3`,`option4`,`answer`,`subject_type`)";
+		}else if(type == 1){
+			//这是填空题
+			table = "`tkt`";
+			columns = "(`title`,`answer`,`type`,`subject_type`)";
+		}
+		
+		String sql = "LOAD DATA LOCAL INFILE '"+filePath+"' INTO TABLE "+table+" IGNORE 1 LINES "+columns;
+		Db.update(sql);
+		uploadFile.getFile().delete();
+		redirect("/admin/sysConfig");
+	}
 
 	// 以下为过渡的一些控制器，便于拦截器的控制
 
@@ -176,4 +234,8 @@ public class AdminController extends BaseControllerImpl {
 		renderJsp("/chgPass.jsp");
 	}
 
+	public void index2config(){
+		
+		renderJsp("/system-config.jsp");
+	}
 }

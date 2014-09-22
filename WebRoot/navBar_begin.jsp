@@ -82,8 +82,11 @@
 			全国计算机等级考试培训系统后台管理
 		</h2>
 		<div class="btn_view_site">
+			<center>
+			<a class="btn btn-inverse ${session.admin.authority==2?'hidden':'' }" href="admin/index2config">系统设置</a>
 			<a class="btn btn-inverse" href="admin/index2chgpas">修改密码</a>
 			<a class="btn btn-inverse" href="admin/logout">退出</a>
+			</center>
 		</div>
 		</hgroup>
 		</header>

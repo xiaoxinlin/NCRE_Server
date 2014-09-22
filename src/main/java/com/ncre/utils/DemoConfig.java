@@ -44,6 +44,7 @@ public class DemoConfig extends JFinalConfig{
 		tktType.add("填空题");
 		tktType.add("大题");
 		JFinal.me().getServletContext().setAttribute("tktType", tktType);
+		JFinal.me().getServletContext().setAttribute("examConfig", new ExamConfig());
 	}
 
 	public void configConstant(Constants arg0) {
