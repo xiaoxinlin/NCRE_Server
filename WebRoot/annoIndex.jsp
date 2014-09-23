@@ -58,7 +58,7 @@
 				<a name="add-anno" class="btn" href="announcement/index2add">添加公告</a>
 			</div>
 			<div class="span8">
-				<ul class="pager">
+				<!-- <ul class="pager">
 					<li>
 						<a
 							href="announcement/getAnnounList?pageNow=${annoList.pageNumber == 1?1:annoList.pageNumber-1}">上一页</a>
@@ -68,11 +68,28 @@
 						<a
 							href="announcement/getAnnounList?pageNow=${annoList.pageNumber == annoList.totalPage?annoList.pageNumber:annoList.pageNumber+1}">下一页</a>
 					</li>
-				</ul>
+				</ul> -->
+				<center>
+				<div class="pagination" style="margin-top:40px;">
+				  <ul id="pager">
+				  
+				  </ul>
+				  <p>第&nbsp${annoList.pageNumber }&nbsp页　 /　 共&nbsp${annoList.totalPage }&nbsp页</p>
+				</div>
+				</center>
 			</div>
 		</div>
 	</div>
 </div>
 </article>
 </section>
+<script>
+$(function(){
+	var pageNow = ${annoList.pageNumber};
+	var pageTotal = ${annoList.totalPage};
+	var address ='announcement/getAnnounList?pageNow=';
+	page(address,pageNow,pageTotal);
+});
+
+</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>

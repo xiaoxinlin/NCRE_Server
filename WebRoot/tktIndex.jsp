@@ -151,7 +151,7 @@
 				<a name="add-tkt" class="btn" href="tkt/index2add?subject-type=${subjectType}">添加填空题</a>
 			</div>
 			<div class="span8">
-				<ul class="pager">
+				<!-- <ul class="pager">
 					<li>
 						<a
 							href="tkt/getList?pageNow=${list.pageNumber == 1?1:list.pageNumber-1}&subject-type=${subjectType}">上一页</a>
@@ -161,11 +161,28 @@
 						<a
 							href="tkt/getList?pageNow=${list.pageNumber == list.totalPage?list.pageNumber:list.pageNumber+1}&subject-type=${subjectType}">下一页</a>
 					</li>
-				</ul>
+				</ul> -->
+				<center>
+				<div class="pagination" style="margin-top:40px;">
+				  <ul id="pager">
+				  </ul>
+				  <p>第&nbsp${list.pageNumber }&nbsp页　 /　 共&nbsp${list.totalPage }&nbsp页　</p>
+				</div>
+				</center>
 			</div>
 		</div>
 	</div>
 </div>
 </article>
 </section>
+<script>
+$(function(){
+	var pageNow = ${list.pageNumber};
+	var pageTotal = ${list.totalPage};
+	var subjectType = ${subjectType}
+	var address ='tkt/getList?subject-type='+subjectType+'&pageNow=';
+	page(address,pageNow,pageTotal);
+});
+
+</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>

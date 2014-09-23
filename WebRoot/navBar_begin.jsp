@@ -47,6 +47,7 @@
 		<link rel="stylesheet" href="lib/jquery.wysiwyg.css" type="text/css" />
 		<script type="text/javascript" src="lib/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
+		<script src="js/main.js"></script>
 		<script type="text/javascript" src="lib/jquery.wysiwyg.js"></script>
 		<script type="text/javascript" src="controls/wysiwyg.image.js"></script>
 		<script type="text/javascript" src="controls/wysiwyg.link.js"></script>

@@ -64,7 +64,7 @@
 				<a name="add-admin" class="btn" href="admin/index2add">添加管理员</a>
 			</div>
 			<div class="span8">
-				<ul class="pager">
+				<!--  <ul class="pager">
 					<li>
 						<a
 							href="admin/getAdminList?pageNow=${adminList.pageNumber == 1?1:adminList.pageNumber-1}">上一页</a>
@@ -74,11 +74,28 @@
 						<a
 							href="admin/getAdminList?pageNow=${adminList.pageNumber == adminList.totalPage?adminList.pageNumber:adminList.pageNumber+1}">下一页</a>
 					</li>
-				</ul>
+				</ul> -->
+				<center>
+				<div class="pagination" style="margin-top:40px;">
+				  <ul id="pager">
+				  </ul>
+				  <p>第&nbsp${adminList.pageNumber }&nbsp页　 /　 共&nbsp${adminList.totalPage }&nbsp页</p>
+				</div>
+				</center>
 			</div>
 		</div>
 	</div>
 </div>
+
 </article>
 </section>
+<script>
+$(function(){
+	var pageNow = ${adminList.pageNumber};
+	var pageTotal = ${adminList.totalPage};
+	var address ='admin/getAdminList?pageNow=';
+	page(address,pageNow,pageTotal);
+});
+
+</script>
 <jsp:include page="navBar_end.jsp" flush="true"></jsp:include>
