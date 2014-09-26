@@ -2,6 +2,7 @@ package com.ncre.utils;
 
 
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.ext.interceptor.SessionInViewInterceptor;
+import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -88,7 +90,7 @@ public class DemoConfig extends JFinalConfig{
 		/**
 		 * ehcache.xml文件必须放在classpath路径下，不然系统会因为找不到文件使用默认的ehcache配置
 		 */
-		URL url = getClass().getResource("/ehcache.xml");  
+		 String url = PathKit.getWebRootPath()+File.separator+"WEB-INF"+File.separator+"ehcache.xml";
 		arg0.add(new EhCachePlugin(url));
 	}
 

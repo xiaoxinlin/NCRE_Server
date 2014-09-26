@@ -15,9 +15,7 @@
 				<form class="add-xzt-form" method="post" action="xzt/update">
 		            <div class="control-group">
 		            <h5>选择题题目：</h5>
-		                <textarea name="xztClass.title"  rows="7" cols="100" class="context">
-		                ${xzt.title}
-						</textarea>
+		                <textarea name="xztClass.title"  rows="7" cols="100">${xzt.title}</textarea>
 		            </div>
 		            <div class="control-group">
 		             

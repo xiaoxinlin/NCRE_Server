@@ -20,8 +20,7 @@
 				填空题题目：
 			</h5>
 		</label>
-		<textarea name="tktClass.title" rows="5" cols="100" class="context">
-						</textarea>
+		<textarea name="tktClass.title" rows="5" cols="100"></textarea>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="">
@@ -29,8 +28,7 @@
 				答案：
 			</h5>
 		</label>
-		<textarea name="tktClass.answer" rows="5" cols="100" class="context">
-						</textarea>
+		<textarea name="tktClass.answer" rows="5" cols="100"></textarea>
 	</div>
 	<div class="control-group">
 		<b>题型：</b>

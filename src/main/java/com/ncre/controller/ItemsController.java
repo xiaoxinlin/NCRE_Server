@@ -23,7 +23,7 @@ public class ItemsController extends BaseControllerImpl{
 	
 	//获取一套测试题目
 	@Before(CacheInterceptor.class)
-	@CacheName("items2Index")
+	@CacheName("itemsIndex")
 	public void index(){	
 	}
 
@@ -52,6 +52,8 @@ public class ItemsController extends BaseControllerImpl{
 	}
 	
 	//获取每日一练的题目
+	@Before(CacheInterceptor.class)
+	@CacheName("itemsIndex")
 	public void testList(){
 		int subjectType = CommonService.StringNum2int(getPara("subject-type"));
 		List<XztClass> xztList = XztService.getXztsOfTest(subjectType);
